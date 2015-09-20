@@ -4,19 +4,7 @@ import SearchBoard from "./search_board";
 
 export default React.createClass ({
   getData: function(countryCode) {
-    $.ajax({
-      url: "http://api.worldbank.org/countries/" + countryCode + "/indicators/NY.GDP.MKTP.CD?per_page=56&format=jsonP",
-      type: "GET",
-      dataType: 'jsonp',
-      jsonp: "prefix",
-      jsonpCallback: "jquery_"+(new Date).getTime(),
-      headers: {'Access-Control-Allow-Origin': 'http://localhost:8080'},
-      success: function(response) {
-        console.log(response);
-      }, error: function(xhr) {
-        console.log("xhr:", xhr);
-      },
-    });
+    var data = gdpByYear(countryCode);
   },
   getCountryCode: function(country) {
     var countryCode = countries.filter(function(c) {
@@ -38,6 +26,22 @@ export default React.createClass ({
     );
   },
 });
+
+function gdpByYear(countryCode) {
+    $.ajax({
+    url: "http://api.worldbank.org/countries/" + countryCode + "/indicators/NY.GDP.MKTP.CD?per_page=56&format=jsonP",
+    type: "GET",
+    dataType: 'jsonp',
+    jsonp: "prefix",
+    jsonpCallback: "jquery_"+(new Date).getTime(),
+    headers: {'Access-Control-Allow-Origin': 'http://localhost:8080'},
+    success: function(response) {
+      console.log(response);
+    }, error: function(xhr) {
+      console.log("xhr:", xhr);
+    },
+  });
+};
 
 var countries = [
     {"Afghanistan" : "AF"},
@@ -286,4 +290,3 @@ var countries = [
     {"Zambia" : "ZM"},
     {"Zimbabwe" : "ZW"}
 ];
-
