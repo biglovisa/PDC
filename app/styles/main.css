@@ -1,0 +1,73 @@
+ /* ----------- general styles -------------- */
+
+body {
+  background: white;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+ /* ----------- header -------------- */
+
+.header {
+  color: red;
+}
+
+.header p {
+  padding-left: 2.5%;
+}
+
+.container.top-bar {
+  height: 5%;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  font-size: 15px;
+}
+
+.container.top-bar h3 {
+  margin: 0 auto;
+  margin-top: 1%;
+  padding-left: 1%;
+  display: inline-block;
+}
+
+.container.top-bar a {
+  color: orange;
+  float: right;
+  text-decoration: none;
+  padding-right: 1%;
+  padding-top: 2%;
+}
+
+.container.top-bar a:hover {
+  color: darkred;
+}
+
+ /* ----------- search board -------------- */
+
+.search-board {
+}
+
+/* globe */
+
+.globe {
+  display: inline-block;
+}
+
+.globe img {
+  width: 400px;
+  height: 400px;
+}
+
+/* search options */
+
+.search-options {
+  width: 60%;
+  float: right;
+}
+
+.search-options input {
+  /*display: inline-block;*/
+}
+
+.search-options button {
+}
+

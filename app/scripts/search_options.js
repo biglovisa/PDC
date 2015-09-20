@@ -8,19 +8,28 @@ export default React.createClass ({
     e.preventDefault();
 
     var country = this.refs.country.getDOMNode().value;
-
+    console.log(this.state.country);
     this.setState({ country: country })
   },
 
   render: function() {
     return (
-      <div className="search-options">
-        <h4>Configure your query</h4>
-
-        <div className="search-form">
-          Country: <br />
-          <input type="text" ref="country" placeholder="Select a country..." />
-          <button type="submit" onClick={this.handleSelect} >Select</button>
+      <div className="search-options col-md-6">
+        <div className="search-form input-group">
+          <input
+            type="text"
+            ref="country"
+            placeholder="Select a country..."
+            className="form-control"
+          />
+          <span className="input-group-btn">
+            <button
+            type="submit"
+            className="btn btn-default"
+            >
+            select
+            </button>
+          </span>
         </div>
       </div>
     );
