@@ -8,7 +8,7 @@ export default React.createClass ({
     return (
       <div className="container search-board">
         <Globe />
-        <SearchOptions />
+        <SearchOptions handleSelect={this.props.handleSelect} />
       </div>
     );
   },

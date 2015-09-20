@@ -6,10 +6,10 @@ export default React.createClass ({
   },
   handleSelect: function(e) {
     e.preventDefault();
-
     var country = this.refs.country.getDOMNode().value;
-    console.log(this.state.country);
-    this.setState({ country: country })
+    this.setState({ country: country });
+
+    this.props.handleSelect(country);
   },
 
   render: function() {
@@ -26,6 +26,7 @@ export default React.createClass ({
             <button
             type="submit"
             className="btn btn-default"
+            onClick={this.handleSelect}
             >
             select
             </button>
