@@ -17,7 +17,7 @@ export default React.createClass ({
       },
       size: {
         width: 1000,
-        height: 500
+        height: 450
       },
       axisLabel: {
         x: "year",

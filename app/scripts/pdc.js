@@ -12,8 +12,10 @@ export default React.createClass ({
     var datum = data[1];
     datum.shift();
 
+    // TODO: find a better way to parse the GDP
     var formattedValues = datum.reduce(function(array, dataPoint) {
-      array.push({label: "'" + parseInt(dataPoint.date.slice(2, 4)), value: parseInt(dataPoint.value)});
+      array.push({label: "'" + parseInt(dataPoint.date.slice(2, 4)),
+                  value: parseInt(dataPoint.value) / 100000000});
       return array;
     }, []);
 
