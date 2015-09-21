@@ -2,13 +2,13 @@
 
 body {
   background: white;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Scada', sans-serif;
 }
 
  /* ----------- header -------------- */
 
 .header {
-  color: red;
+  color: green;
 }
 
 .header p {
@@ -30,7 +30,7 @@ body {
 }
 
 .container.top-bar a {
-  color: orange;
+  color: green;
   float: right;
   text-decoration: none;
   padding-right: 1%;
@@ -38,7 +38,7 @@ body {
 }
 
 .container.top-bar a:hover {
-  color: darkred;
+  color: black;
 }
 
  /* ----------- search board -------------- */

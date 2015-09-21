@@ -4,7 +4,9 @@ import SearchBoard from "./search_board";
 
 export default React.createClass ({
   getInitialState: function() {
-    return ({ chartValues: [] });
+    return ({
+      chartValues: []
+    });
   },
   formatData: function(data) {
     var datum = data[1];
@@ -55,7 +57,10 @@ export default React.createClass ({
     return (
       <div className="container pdc">
         <Header />
-        <SearchBoard handleSelect={this.handleSelect} values={this.state.chartValues} />
+        <SearchBoard
+        handleSelect={this.handleSelect}
+        values={this.state.chartValues}
+        />
       </div>
     );
   },

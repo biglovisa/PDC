@@ -25,7 +25,7 @@ export default React.createClass ({
           <span className="input-group-btn">
             <button
             type="submit"
-            className="btn btn-default"
+            className="btn btn-success"
             onClick={this.handleSelect}
             >
             select
