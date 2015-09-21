@@ -6,7 +6,7 @@ export default React.createClass ({
   render: function() {
     var lineData = this.props.values;
 
-    var type = "line";
+    var type = "lineBar";
 
     let options = {
       padding: {

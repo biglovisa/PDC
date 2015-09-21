@@ -52,6 +52,14 @@ export default React.createClass ({
 
     this.getData(countryCode);
   },
+  handleClick: function(clicked) {
+    // based on the one that is clicked
+    // compile that data and format it correctly and send it as a prop back to
+    // search board
+
+    console.log(clicked);
+    console.log("you are in pdc");
+  },
 
   render: function() {
     return (
@@ -60,6 +68,7 @@ export default React.createClass ({
         <SearchBoard
             handleSelect={this.handleSelect}
             values={this.state.chartValues}
+            clickedButton={this.handleClick}
         />
       </div>
     );

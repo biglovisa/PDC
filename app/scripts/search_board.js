@@ -4,11 +4,13 @@ import SearchOptions from "./search_options";
 import Chart from "./chart";
 
 export default React.createClass ({
-
+  handleClick: function(clicked) {
+    this.props.clickedButton(clicked)
+  },
   render: function() {
     return (
-      <div className="col-lg-12 search-board">
-        <SearchOptions handleSelect={this.props.handleSelect} />
+      <div className="search-board">
+        <SearchOptions handleSelect={this.props.handleSelect} handleClick={this.handleClick} />
         <Chart values={this.props.values} />
       </div>
     );

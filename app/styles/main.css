@@ -47,19 +47,10 @@ body {
   width: 100%;
 }
 
-/* globe */
-
-.globe {
-  display: inline-block;
-  width: 450px;
-  height: 450px;
-  border: 1px solid black;
-}
-
 /* search options */
 
 .search-options {
-  width: 60%;
+  width: 100%;
   float: right;
 }
 
@@ -73,5 +64,5 @@ body {
 /* chart */
 
 .chart {
-  float: right;
+  padding-top: 30px;
 }
