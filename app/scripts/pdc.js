@@ -8,26 +8,29 @@ export default React.createClass ({
       chartValues: []
     });
   },
-  formatData: function(data) {
+  updateStateWithData: function(data) {
     var datum = data[1];
     datum.shift();
 
+    // TODO: find a better way to parse the GDP
     var formattedValues = datum.reduce(function(array, dataPoint) {
-      array.push({x: parseInt(dataPoint.date), y: parseInt(dataPoint.value)});
+      array.push({label: "'" + parseInt(dataPoint.date.slice(2, 4)),
+                  value: parseInt(dataPoint.value) / 100000000});
       return array;
     }, []);
 
     var lineData = [
       {
-        name: "GDP/year",
-        values: formattedValues,
-        strokeWidth: 10
+        key: "GDP by year",
+        values: formattedValues.reverse()
       }
     ];
 
     this.setState({ chartValues: lineData });
   },
   getData: function(countryCode) {
+    //TODO : extract ajax call
+
     $.ajax({
       url: "http://api.worldbank.org/countries/" + countryCode + "/indicators/NY.GDP.MKTP.CD?per_page=56&format=jsonP",
       type: "GET",
@@ -36,21 +39,18 @@ export default React.createClass ({
       jsonpCallback: "jquery_"+(new Date).getTime(),
       headers: {'Access-Control-Allow-Origin': 'http://localhost:8080'},
       success: function(response) {
-        this.formatData(response);
+        this.updateStateWithData(response);
       }.bind(this), error: function(xhr) {
         console.log("xhr:", xhr);
       },
     });
   },
-  getCountryCode: function(country) {
+  handleSelect: function(country) {
     var countryCode = countries.filter(function(c) {
       return c[country];
     })[0][country];
 
     this.getData(countryCode);
-  },
-  handleSelect: function(country) {
-    this.getCountryCode(country);
   },
 
   render: function() {
@@ -58,8 +58,8 @@ export default React.createClass ({
       <div className="container pdc">
         <Header />
         <SearchBoard
-        handleSelect={this.handleSelect}
-        values={this.state.chartValues}
+            handleSelect={this.handleSelect}
+            values={this.state.chartValues}
         />
       </div>
     );

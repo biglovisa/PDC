@@ -44,6 +44,7 @@ body {
  /* ----------- search board -------------- */
 
 .search-board {
+  width: 100%;
 }
 
 /* globe */
@@ -72,7 +73,5 @@ body {
 /* chart */
 
 .chart {
-  padding-left: 10%;
-  padding-top: 2%;
   float: right;
 }

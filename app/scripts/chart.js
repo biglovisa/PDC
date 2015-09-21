@@ -1,27 +1,32 @@
 import React from "react";
-import { LineChart } from "react-d3";
+import Chart from "c3-react";
 
 export default React.createClass ({
 
   render: function() {
     var lineData = this.props.values;
-    var lineChart = <LineChart
-                    legend={true}
-                    data={lineData}
-                    width={500}
-                    height={400}
-                    viewBoxObject={
-                      {
-                        x: 0,
-                        y: 0,
-                        width: 1500,
-                        height: 1000
-                      }
-                    }
-                    title="GDP by Year"
-                    yAxisLabel="$"
-                    xAxisLabel="Year"
-                    gridHorizontal={true} />
+
+    var type = "line";
+
+    let options = {
+      padding: {
+        top: 20,
+        bottom: 20,
+        left: 100,
+        right: 10
+      },
+      size: {
+        width: 1000,
+        height: 450
+      },
+      axisLabel: {
+        x: "year",
+        y: "GDP (USD)"
+      },
+    };
+
+    var lineChart = <Chart data={lineData} type={type} options={options} />
+
     return (
       <div className="chart pull-left">
         {lineChart}

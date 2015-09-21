@@ -7,8 +7,7 @@ export default React.createClass ({
 
   render: function() {
     return (
-      <div className="container search-board">
-        <Globe />
+      <div className="col-lg-12 search-board">
         <SearchOptions handleSelect={this.props.handleSelect} />
         <Chart values={this.props.values} />
       </div>
