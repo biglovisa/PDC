@@ -71,3 +71,10 @@ body {
 .search-options button {
 }
 
+/* chart */
+
+.chart {
+  padding-left: 10%;
+  padding-top: 2%;
+  float: right;
+}

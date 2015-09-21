@@ -21,6 +21,7 @@
     "country-data": "0.0.23",
     "json-loader": "^0.5.3",
     "react": "^0.13.3",
+    "react-d3": "^0.4.0",
     "react-router": "1.0.0-beta4"
   },
   "author": "Lovisa Svallingson",
