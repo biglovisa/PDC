@@ -3,8 +3,32 @@ import Header from "./header";
 import SearchBoard from "./search_board";
 
 export default React.createClass ({
+  formatData: function(data) {
+    // get date and value
+    var datum = data[1];
+    datum.shift();
+
+    var values = datum.reduce(function(array, value) {
+      array.push({x: value.date, y: value.value});
+      return array;
+    }, []);
+
+    console.log(values);
+  },
   getData: function(countryCode) {
-    var data = gdpByYear(countryCode);
+    $.ajax({
+      url: "http://api.worldbank.org/countries/" + countryCode + "/indicators/NY.GDP.MKTP.CD?per_page=56&format=jsonP",
+      type: "GET",
+      dataType: 'jsonp',
+      jsonp: "prefix",
+      jsonpCallback: "jquery_"+(new Date).getTime(),
+      headers: {'Access-Control-Allow-Origin': 'http://localhost:8080'},
+      success: function(response) {
+        this.formatData(response);
+      }.bind(this), error: function(xhr) {
+        console.log("xhr:", xhr);
+      },
+    });
   },
   getCountryCode: function(country) {
     var countryCode = countries.filter(function(c) {
@@ -26,22 +50,6 @@ export default React.createClass ({
     );
   },
 });
-
-function gdpByYear(countryCode) {
-    $.ajax({
-    url: "http://api.worldbank.org/countries/" + countryCode + "/indicators/NY.GDP.MKTP.CD?per_page=56&format=jsonP",
-    type: "GET",
-    dataType: 'jsonp',
-    jsonp: "prefix",
-    jsonpCallback: "jquery_"+(new Date).getTime(),
-    headers: {'Access-Control-Allow-Origin': 'http://localhost:8080'},
-    success: function(response) {
-      console.log(response);
-    }, error: function(xhr) {
-      console.log("xhr:", xhr);
-    },
-  });
-};
 
 var countries = [
     {"Afghanistan" : "AF"},
