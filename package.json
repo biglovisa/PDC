@@ -18,10 +18,13 @@
     "webpack-dev-server": "^1.11.0"
   },
   "dependencies": {
+    "c3-react": "^0.1.13",
     "country-data": "0.0.23",
     "json-loader": "^0.5.3",
+    "node-gyp": "^3.0.3",
     "react": "^0.13.3",
     "react-d3": "^0.4.0",
+    "react-google-charts": "^0.1.6",
     "react-router": "1.0.0-beta4"
   },
   "author": "Lovisa Svallingson",
