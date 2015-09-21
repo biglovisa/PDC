@@ -2,8 +2,6 @@ Public Data Compiler
 =====================
 [![Stories in Ready](https://badge.waffle.io/applegrain/PDC.svg?label=ready&title=Ready)](http://waffle.io/applegrain/PDC) 
 
-Heroku TBD!
-
 ### instructions
 
 * clone the project
