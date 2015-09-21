@@ -8,7 +8,6 @@ export default React.createClass ({
   render: function() {
     return (
       <div className="container search-board">
-        <Globe />
         <SearchOptions handleSelect={this.props.handleSelect} />
         <Chart values={this.props.values} />
       </div>

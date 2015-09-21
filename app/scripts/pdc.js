@@ -13,15 +13,14 @@ export default React.createClass ({
     datum.shift();
 
     var formattedValues = datum.reduce(function(array, dataPoint) {
-      array.push({x: parseInt(dataPoint.date), y: parseInt(dataPoint.value)});
+      array.push({label: "'" + parseInt(dataPoint.date.slice(2, 4)), value: parseInt(dataPoint.value)});
       return array;
     }, []);
 
     var lineData = [
       {
-        name: "GDP/year",
-        values: formattedValues,
-        strokeWidth: 10
+        key: "GDP by year",
+        values: formattedValues.reverse()
       }
     ];
 
