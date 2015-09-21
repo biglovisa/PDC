@@ -3,17 +3,27 @@ import Header from "./header";
 import SearchBoard from "./search_board";
 
 export default React.createClass ({
+  getInitialState: function() {
+    return ({ chartValues: [] });
+  },
   formatData: function(data) {
-    // get date and value
     var datum = data[1];
     datum.shift();
 
-    var values = datum.reduce(function(array, value) {
-      array.push({x: value.date, y: value.value});
+    var formattedValues = datum.reduce(function(array, dataPoint) {
+      array.push({x: parseInt(dataPoint.date), y: parseInt(dataPoint.value)});
       return array;
     }, []);
 
-    console.log(values);
+    var lineData = [
+      {
+        name: "GDP/year",
+        values: formattedValues,
+        strokeWidth: 10
+      }
+    ];
+
+    this.setState({ chartValues: lineData });
   },
   getData: function(countryCode) {
     $.ajax({
@@ -45,7 +55,7 @@ export default React.createClass ({
     return (
       <div className="container pdc">
         <Header />
-        <SearchBoard handleSelect={this.handleSelect}/>
+        <SearchBoard handleSelect={this.handleSelect} values={this.state.chartValues} />
       </div>
     );
   },
