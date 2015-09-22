@@ -28,7 +28,7 @@ export default React.createClass ({
       });
 
       dropdown = (
-         <ul style={{height: '300px', overflow: 'auto'}}>
+         <ul style={{overflow: 'auto'}} className="dropdown" >
            {listItems}
         </ul>
       )
