@@ -5,7 +5,9 @@
   "main": "app/scripts/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --inline"
+    "start": "webpack-dev-server --hot --inline",
+    "dist": "webpack -p",
+    "postinstall": "npm run dist"
   },
   "devDependencies": {
     "babel-core": "^5.8.22",
