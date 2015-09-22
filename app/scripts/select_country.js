@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 export default React.createClass({
   getInitialState: function() {
-    return { inputText: "", showDropdown: false }
+    return { inputText: '', showDropdown: false }
   },
   handleSearch: function(e){
     this.setState({showDropdown: true, inputText: e.target.value});
@@ -22,19 +22,19 @@ export default React.createClass({
       });
 
       dropdown = (
-         <ul style={{overflow: 'auto'}} className="dropdown" >
+         <ul style={{overflow: 'auto'}} className='dropdown' >
            {listItems}
         </ul>
       )
     }
 
     return (
-      <div className="search-form input-group col-md-6">
+      <div className='search-form'>
         <input
-          type="text"
+          type='text'
+          className='col-md-12'
           value={this.state.inputText}
-          placeholder="Select a country..."
-          className="form-control"
+          placeholder='Select a country...'
           onChange={this.handleSearch}
         />
 
