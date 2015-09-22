@@ -43,24 +43,6 @@ body {
 
  /* ----------- search board -------------- */
 
-.search-board {
-  width: 100%;
-}
-
-/* search options */
-
-.search-options {
-  width: 100%;
-  float: right;
-}
-
-.search-options input {
-  /*display: inline-block;*/
-}
-
-.search-options button {
-}
-
 /* search */
 
 .dropdown {
