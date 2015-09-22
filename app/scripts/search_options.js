@@ -2,20 +2,38 @@ import React from "react";
 
 export default React.createClass ({
   getInitialState: function() {
-    return ({ country: "" })
+    return { inputText: "", showDropdown: false }
   },
   handleClick: function(clicked) {
-    this.props.handleClick(clicked)
+    this.props.handleClick()
   },
-  handleSelect: function(e) {
-    e.preventDefault();
-    var country = this.refs.country.getDOMNode().value;
-    this.setState({ country: country });
-
-    this.props.handleSelect(country);
+  handleSearch: function(e) {
+    // this.props.handleSelect(country);
+    this.setState({showDropdown: true, inputText: e.target.value});
   },
-
+  selectValue: function(item) {
+    this.setState({showDropdown: false, inputText: item});
+     //ajax
+     // call the util/api func
+     // this.props.onSelect(item);
+  },
   render: function() {
+    var dropdown = null;
+
+    if (this.state.showDropdown && this.state.inputText) {
+      var listItems = this.props.countries.filter(v => {
+        return v.toLowerCase().indexOf(this.state.inputText.toLowerCase()) > -1;
+      }).map(item => {
+        return <li onClick={this.selectValue.bind(this, item)} >{item}</li>;
+      });
+
+      dropdown = (
+         <ul style={{height: '300px', overflow: 'auto'}}>
+           {listItems}
+        </ul>
+      )
+    }
+
     return (
       <div className="search-options col-md-12">
         <div className="col-md-6 btn-group">
@@ -30,19 +48,14 @@ export default React.createClass ({
         <div className="search-form input-group col-md-6">
           <input
             type="text"
-            ref="country"
+            value={this.state.inputText}
             placeholder="Select a country..."
             className="form-control"
+            onChange={this.handleSearch}
           />
-          <span className="input-group-btn">
-            <button
-            type="submit"
-            className="btn btn-success"
-            onClick={this.handleSelect}
-            >
-            select
-            </button>
-          </span>
+
+          { dropdown }
+
         </div>
       </div>
     );

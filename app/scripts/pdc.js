@@ -54,6 +54,7 @@ export default React.createClass({
             handleSelect={this.handleSelect}
             values={this.state.chartValues}
             clickedButton={this.handleClick}
+            countries={this.props.countries}
         />
       </div>
     );

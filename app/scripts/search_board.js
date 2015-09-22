@@ -10,7 +10,7 @@ export default React.createClass ({
   render: function() {
     return (
       <div className="search-board">
-        <SearchOptions handleSelect={this.props.handleSelect} handleClick={this.handleClick} />
+        <SearchOptions handleSelect={this.props.handleSelect} handleClick={this.handleClick} countries={Object.keys(this.props.countries)}/>
         <Chart values={this.props.values} />
       </div>
     );
