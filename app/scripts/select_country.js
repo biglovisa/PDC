@@ -24,7 +24,7 @@ export default React.createClass ({
       var listItems = this.props.countries.filter(v => {
         return v.toLowerCase().indexOf(this.state.inputText.toLowerCase()) > -1;
       }).map(item => {
-        return <li onClick={this.selectValue.bind(this, item)} >{item}</li>;
+        return <li onClick={this.selectValue.bind(this, item)} key={item} >{item}</li>;
       });
 
       dropdown = (

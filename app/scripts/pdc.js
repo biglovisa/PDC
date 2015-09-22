@@ -1,12 +1,13 @@
 import React from "react";
 import Header from "./header";
-import SearchBoard from "./search_board";
+import SelectCountry from "./select_country";
+import Chart from "./chart";
 import getCountryData from "./util/api";
 
 export default React.createClass({
   getInitialState: function() {
     return ({
-      chartValues: []
+      dataPoints: []
     });
   },
   updateStateWithData: function(data) {
@@ -27,7 +28,7 @@ export default React.createClass({
       }
     ];
 
-    this.setState({ chartValues: lineData });
+    this.setState({ dataPoints: lineData });
   },
   handleSelect: function(country) {
     getCountryData(this.props.countries[country], 'indicators/NY.GDP.MKTP.CD')
@@ -44,18 +45,18 @@ export default React.createClass({
     // send it as a prop back to search board
     // set the state right here in the component with a function call
 
-    // this.setState({ chartValues: this.chartData(option) })
+    // this.setState({ dataPoints: this.chartData(option) })
   },
   render: function() {
     return (
       <div className="container pdc">
         <Header />
-        <SearchBoard
+        <SelectCountry
             handleSelect={this.handleSelect}
-            values={this.state.chartValues}
             clickedButton={this.handleClick}
-            countries={this.props.countries}
+            countries={Object.keys(this.props.countries)}
         />
+        <Chart values={this.props.dataPoints} />
       </div>
     );
   },
