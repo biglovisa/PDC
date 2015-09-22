@@ -1,9 +1,9 @@
 import React from "react";
 import Chart from "c3-react";
 
-export default React.createClass ({
+export default React.createClass({
 
-  render: function() {
+  render: function(){
     var lineData = this.props.values;
 
     var type = "line";
@@ -19,6 +19,7 @@ export default React.createClass ({
         width: 1000,
         height: 450
       },
+      labels: true,
       axisLabel: {
         x: "year",
         y: "GDP (USD)"

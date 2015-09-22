@@ -43,35 +43,25 @@ body {
 
  /* ----------- search board -------------- */
 
-.search-board {
-  width: 100%;
+/* search */
+
+.dropdown {
+  border: 1px solid lightgrey;
+  border-radius: 2px 2px 10px 10px;
 }
 
-/* globe */
-
-.globe {
-  display: inline-block;
-  width: 450px;
-  height: 450px;
-  border: 1px solid black;
+.dropdown li {
+  list-style: none;
 }
 
-/* search options */
-
-.search-options {
-  width: 60%;
-  float: right;
-}
-
-.search-options input {
-  /*display: inline-block;*/
-}
-
-.search-options button {
+.dropdown li:hover {
+  background-color: rgba(211, 211, 211, 0.4);
 }
 
 /* chart */
 
 .chart {
-  float: right;
+  padding-top: 30px;
 }
+
+
