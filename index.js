@@ -8,7 +8,7 @@ app.use("/dist", express.static(__dirname + "/dist"));
 
 
 app.get('/', function(request, response) {
-  response.sendFile('./dist/index.html');
+  response.sendFile('/dist/index.html');
 });
 
 app.listen(app.get('port'), function() {
