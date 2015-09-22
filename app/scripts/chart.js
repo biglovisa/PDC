@@ -1,12 +1,12 @@
 import React from "react";
 import Chart from "c3-react";
 
-export default React.createClass ({
+export default React.createClass({
 
-  render: function() {
+  render: function(){
     var lineData = this.props.values;
 
-    var type = "lineBar";
+    var type = "line";
 
     let options = {
       padding: {

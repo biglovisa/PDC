@@ -1,8 +1,8 @@
 import React from "react";
 
-export default React.createClass ({
+export default React.createClass({
 
-  render: function() {
+  render: function(){
     return (
       <div className="header">
         <div className="container top-bar">
@@ -19,9 +19,9 @@ export default React.createClass ({
   },
 });
 
-var RepositoryLink = React.createClass ({
+var RepositoryLink = React.createClass({
 
-  render: function() {
+  render: function(){
     return (
       <a href="https://github.com/applegrain/PDC"
       className="repository-link"
@@ -34,7 +34,7 @@ var RepositoryLink = React.createClass ({
 
 var Description = React.createClass ({
 
-  render: function() {
+  render: function(){
     return (
       <p>Query World Bank Data to compare global statistics</p>
     );
