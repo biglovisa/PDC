@@ -9,7 +9,7 @@ app.use("/dist", express.static(__dirname + "/dist"));
 
 
 app.get('/', function(request, response) {
-  response.render('dist/index');
+  response.render('dist/index.html');
 });
 
 app.listen(app.get('port'), function() {
