@@ -19,6 +19,7 @@ export default React.createClass ({
         width: 1000,
         height: 450
       },
+      labels: true,
       axisLabel: {
         x: "year",
         y: "GDP (USD)"
