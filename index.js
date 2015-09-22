@@ -3,13 +3,12 @@ var app = express();
 
 app.set('port', (process.env.PORT || 8080));
 
-app.use(express.static(__dirname + '/dist'));
 app.use("/app", express.static(__dirname + "/app"));
 app.use("/dist", express.static(__dirname + "/dist"));
 
 
 app.get('/', function(request, response) {
-  response.sendfile('dist/index.html');
+  response.sendFile('./dist/index.html');
 });
 
 app.listen(app.get('port'), function() {
