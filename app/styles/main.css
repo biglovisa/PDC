@@ -46,6 +46,7 @@ body {
 /* search */
 
 .dropdown {
+  max-height: 300px;
   border: 1px solid lightgrey;
   border-radius: 2px 2px 10px 10px;
 }
