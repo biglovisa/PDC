@@ -7,7 +7,6 @@ export default React.createClass({
     var lineData = this.props.values;
 
     var type = "line";
-
     let options = {
       padding: {
         top: 20,

@@ -57,7 +57,7 @@ export default React.createClass({
       return responses.map(response => {
         let formattedValues = this.formatAjaxData(response[0]);
         return {
-          key: currentButton.key,
+          key: response[0][1][0].country.value,
           values: formattedValues.reverse()
         };
       });
