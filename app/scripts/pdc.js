@@ -4,7 +4,7 @@ import SelectCountry  from './select_country';
 import ChartOptions   from './chart_options';
 import Chart          from './chart';
 import getCountryData from './util/api';
-
+import Options        from './util/api';
 
 export default React.createClass({
   getInitialState: function() {
@@ -68,7 +68,6 @@ export default React.createClass({
     });
   },
   render: function(){
-
     return (
       <div className='container pdc'>
         <Header />
