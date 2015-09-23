@@ -9,6 +9,7 @@ export default React.createClass({
   },
   selectValue: function(item){
     this.setState({showDropdown: false, inputText: item});
+
     this.props.onSelect(item)
   },
   render: function(){
@@ -37,9 +38,7 @@ export default React.createClass({
           placeholder='Select a country...'
           onChange={this.handleSearch}
         />
-
         { dropdown }
-
       </div>
     );
   },

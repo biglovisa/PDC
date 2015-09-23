@@ -59,10 +59,28 @@ body {
   background-color: rgba(211, 211, 211, 0.4);
 }
 
+.search-board {
+}
+
+.first-country {
+  display: inline-block;
+}
+
+.second-country {
+  float: right;
+}
+
+.chart-options {
+  margin-top: 1%;
+}
+
+.select-country {
+  margin-top: 1%;
+  width: 100%;
+}
+
 /* chart */
 
 .chart {
   padding-top: 30px;
 }
-
-

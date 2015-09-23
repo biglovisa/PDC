@@ -1,13 +1,14 @@
-import React          from "react";
-import Header         from "./header";
-import SelectCountry  from "./select_country";
-import ChartOptions   from "./chart_options";
-import Chart          from "./chart";
-import getCountryData from "./util/api";
+import React          from 'react';
+import Header         from './header';
+import SelectCountry  from './select_country';
+import ChartOptions   from './chart_options';
+import Chart          from './chart';
+import getCountryData from './util/api';
+import Options        from './util/api';
 
 export default React.createClass({
   getInitialState: function() {
-    return { dataPoints: [], country: "", chartOption: "" };
+    return { dataPoints: [], country: '', chartOption: '' };
   },
   updateStateWithData: function(data){
     var datum = data[1].splice(1);
@@ -57,27 +58,27 @@ export default React.createClass({
       .then(response => {
         this.updateStateWithData(response);
       }, error => {
-        console.error("error:", error);
+        console.error('error:', error);
     });
   },
   render: function(){
     if (this.state.country) {
-      var buttons = <ChartOptions className="col-md-8" handleClick={this.handleClick} />;
+      var buttons = <ChartOptions className='col-md-8' handleClick={this.handleClick} />;
     }
 
     return (
-      <div className="container pdc">
+      <div className='container pdc'>
         <Header />
 
-        <div className="search-board col-lg-12">
-          <div className="first-country col-md-6">
+        <div className='search-board col-lg-12'>
+          <div className='first-country col-md-6'>
             <SelectCountry
               onSelect={this.handleSelect}
               countries={Object.keys(this.props.countries)}
             />
           </div>
 
-          <div className="second-country col-md-6">
+          <div className='second-country col-md-6'>
             <SelectCountry
               onSelect={this.handleSelect}
               countries={Object.keys(this.props.countries)}
