@@ -1,3 +1,4 @@
+
 import React          from 'react';
 import Header         from './header';
 import SelectCountry  from './select_country';
@@ -10,7 +11,7 @@ export default React.createClass({
   getInitialState: function() {
     return { dataPoints: [], currentCountries: [], holder: [] };
   },
-  updateStateWithData: function(data, currentButton){
+  formatAjaxData: function(data){
     var datum = data[1].splice(1);
 
     var formattedValues = datum.reduce(function(array, dataPoint){
@@ -19,16 +20,7 @@ export default React.createClass({
       return array;
     }, []);
 
-    var lineData = [{
-      key: currentButton.key,
-      values: formattedValues.reverse()
-    }];
-
-    this.setState({ dataPoints: lineData });
-
-    // set the current countries datasets as this.state.chartValues
-
-
+    return formattedValues;
   },
   handleSelect: function(country){
     this.state.holder.unshift(country);
@@ -57,12 +49,20 @@ export default React.createClass({
     }
 
     var currentButton = options[clicked];
+    var responsePromises = this.state.currentCountries.map(country => {
+      return getCountryData(this.props.countries[country], currentButton.query);
+    });
 
-    getCountryData(this.props.countries[this.state.country], currentButton.query)
-      .then(response => {
-        this.updateStateWithData(response, currentButton);
-      }, error => {
-        console.error('error:', error);
+    $.when(...responsePromises).then((...responses) => {
+      return responses.map(response => {
+        let formattedValues = this.formatAjaxData(response[0]);
+        return {
+          key: currentButton.key,
+          values: formattedValues.reverse()
+        };
+      });
+    }).then(lineData => {
+      this.setState({ dataPoints: lineData });
     });
   },
   render: function(){
@@ -89,7 +89,7 @@ export default React.createClass({
           <ChartOptions
             className='col-md-8'
             handleClick={this.handleClick}
-          />;
+          />
 
         </div>
         <Chart
