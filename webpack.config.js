@@ -1,10 +1,9 @@
 module.exports = {
-  context: __dirname + "/app",
-  entry: {
-    javascript: "./scripts/app.js",
-    html: "./index.html",
+  entry: ['./app/scripts/app.js'],
+  output: {
+    path: './public',
+    filename: 'app.js'
   },
-
   module: {
     loaders: [
       {
@@ -22,10 +21,5 @@ module.exports = {
       },
       { test: /\.css$/, loader: 'style-loader!css-loader' }
     ],
-  },
-
-  output: {
-    filename: "app.js",
-    path: __dirname + "/dist",
   },
 }

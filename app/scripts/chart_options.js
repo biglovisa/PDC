@@ -40,9 +40,10 @@ export default React.createClass({
       }
     ];
 
-    var buttons = buttons.map(function(object) {
+    var buttons = buttons.map(function(object, index) {
       return (
         <button
+          key={ index }
           value={ object.key }
           onClick={this.handleClick}
           className='btn btn-success'
