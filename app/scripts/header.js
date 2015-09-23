@@ -1,7 +1,6 @@
 import React from "react";
 
 export default React.createClass({
-
   render: function(){
     return (
       <div className="header">
@@ -9,7 +8,6 @@ export default React.createClass({
           <h3>
           Public Data Compiler
           </h3>
-
           <RepositoryLink />
         </div>
 
@@ -20,7 +18,6 @@ export default React.createClass({
 });
 
 var RepositoryLink = React.createClass({
-
   render: function(){
     return (
       <a href="https://github.com/applegrain/PDC"
@@ -32,8 +29,7 @@ var RepositoryLink = React.createClass({
   },
 });
 
-var Description = React.createClass ({
-
+var Description = React.createClass({
   render: function(){
     return (
       <p>Query World Bank Data to compare global statistics</p>

@@ -1,13 +1,14 @@
-import React          from "react";
-import Header         from "./header";
-import SelectCountry  from "./select_country";
-import ChartOptions   from "./chart_options";
-import Chart          from "./chart";
-import getCountryData from "./util/api";
+import React          from 'react';
+import Header         from './header';
+import SelectCountry  from './select_country';
+import ChartOptions   from './chart_options';
+import Chart          from './chart';
+import getCountryData from './util/api';
+
 
 export default React.createClass({
   getInitialState: function() {
-    return { dataPoints: [], country: "", chartOption: "" };
+    return { dataPoints: [], country: '', secondCountry: '', chartOption: '' };
   },
   updateStateWithData: function(data){
     var datum = data[1].splice(1);
@@ -18,72 +19,81 @@ export default React.createClass({
       return array;
     }, []);
 
-    var options = {
-      gdp: 'GDP per capita in USD',
-      mil: 'Military expenditure in % of GDP',
-      deb: 'Central government debt in % of GDP',
-      une: 'Total unemployment in % of total labor force',
-      exp: 'Government expenses in % of GDP',
-      tax: 'Tax revenue in % of GDP',
-      int: 'Internet users per 100 people',
-      cel: 'Cell phone users per 100 people'
-    }
-
     var lineData = [{
-      key: options[this.state.chartOption],
+      key: this.state.currentButton.key,
       values: formattedValues.reverse()
     }];
 
     this.setState({ dataPoints: lineData });
+
+    // set the current countries datasets as this.state.chartValues
+
+
   },
   handleSelect: function(country){
     this.setState({ country: country });
+    // set the country state
+    // create dataset obejcts and add them this.state.currentCountries
+    // limit the length to 2
   },
   handleClick: function(clicked) {
-    this.setState({ chartOption: clicked });
-
     var options = {
-      gdp: 'NY.GDP.PCAP.CD',
-      mil: 'MS.MIL.XPND.GD.ZS',
-      une: 'SL.UEM.TOTL.ZS',
-      deb: 'GC.DOD.TOTL.GD.ZS',
-      exp: 'GC.XPN.TOTL.GD.ZS',
-      tax: 'GC.TAX.TOTL.GD.ZS',
-      int: 'IT.NET.USER.P2',
-      cel: 'IT.CEL.SETS.P2'
+      gdp: { key: 'GDP per capita in USD',
+             query: 'NY.GDP.PCAP.CD' },
+      mil: { key: 'Military expenditure in % of GDP',
+             query: 'MS.MIL.XPND.GD.ZS' },
+      deb: { key: 'Central government debt in % of GDP',
+             query: 'SL.UEM.TOTL.ZS' },
+      une: { key: 'Total unemployment in % of total labor force',
+             query: 'GC.DOD.TOTL.GD.ZS' },
+      exp: { key: 'Government expenses in % of GDP',
+             query: 'GC.XPN.TOTL.GD.ZS' },
+      tax: { key: 'Tax revenue in % of GDP',
+             query: 'GC.TAX.TOTL.GD.ZS' },
+      int: { key: 'Internet users per 100 people',
+             query: 'IT.NET.USER.P2' },
+      cel: { key: 'Cell phone users per 100 people',
+             query: 'IT.CEL.SETS.P2' }
     }
 
-    getCountryData(this.props.countries[this.state.country], options[clicked])
+    this.setState({ chartOption: clicked });
+    this.setState({ currentButton: options[clicked] });
+
+    // set state with util function and then reference i
+    getCountryData(this.props.countries[this.state.country], this.state.currentButton.query)
       .then(response => {
         this.updateStateWithData(response);
       }, error => {
-        console.error("error:", error);
+        console.error('error:', error);
     });
   },
   render: function(){
-    if (this.state.country) {
-      var buttons = <ChartOptions className="col-md-8" handleClick={this.handleClick} />;
-    }
 
     return (
-      <div className="container pdc">
+      <div className='container pdc'>
         <Header />
 
-        <div className="search-board col-lg-12">
-          <div className="first-country col-md-6">
+        <div className='search-board col-lg-12'>
+          <div className='first-country col-md-6'>
             <SelectCountry
+              value='firstCountry'
               onSelect={this.handleSelect}
               countries={Object.keys(this.props.countries)}
             />
           </div>
 
-          <div className="second-country col-md-6">
+          <div className='second-country col-md-6'>
             <SelectCountry
+              value='secondCountry'
               onSelect={this.handleSelect}
               countries={Object.keys(this.props.countries)}
             />
           </div>
-          { buttons }
+          <ChartOptions
+            className='col-md-8'
+            handleClick={this.handleClick}
+          />;
+
         </div>
         <Chart
           values={this.state.dataPoints}
