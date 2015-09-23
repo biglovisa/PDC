@@ -1,3 +1,4 @@
+
 import React          from 'react';
 import Header         from './header';
 import SelectCountry  from './select_country';
@@ -8,33 +9,23 @@ import Options        from './util/api';
 
 export default React.createClass({
   getInitialState: function() {
-    return { dataPoints: [], country: '', secondCountry: '', chartOption: '' };
+    return { dataPoints: [], currentCountries: [], holder: [] };
   },
-  updateStateWithData: function(data){
+  formatAjaxData: function(data){
     var datum = data[1].splice(1);
 
     var formattedValues = datum.reduce(function(array, dataPoint){
-      array.push({label: parseInt(dataPoint.date),
-                  value: parseInt(dataPoint.value)});
+      array.push({label: parseInt(dataPoint.date), value: parseInt(dataPoint.value)});
       return array;
     }, []);
 
-    var lineData = [{
-      key: this.state.currentButton.key,
-      values: formattedValues.reverse()
-    }];
-
-    this.setState({ dataPoints: lineData });
-
-    // set the current countries datasets as this.state.chartValues
-
-
+    return formattedValues;
   },
   handleSelect: function(country){
-    this.setState({ country: country });
-    // set the country state
-    // create dataset obejcts and add them this.state.currentCountries
-    // limit the length to 2
+    this.state.holder.unshift(country);
+    var countries = this.state.holder.slice(0, 2);
+
+    this.setState({ currentCountries: countries });
   },
   handleClick: function(clicked) {
     var options = {
@@ -56,15 +47,21 @@ export default React.createClass({
              query: 'IT.CEL.SETS.P2' }
     }
 
-    this.setState({ chartOption: clicked });
-    this.setState({ currentButton: options[clicked] });
+    var currentButton = options[clicked];
+    var responsePromises = this.state.currentCountries.map(country => {
+      return getCountryData(this.props.countries[country], currentButton.query);
+    });
 
-    // set state with util function and then reference i
-    getCountryData(this.props.countries[this.state.country], this.state.currentButton.query)
-      .then(response => {
-        this.updateStateWithData(response);
-      }, error => {
-        console.error('error:', error);
+    $.when(...responsePromises).then((...responses) => {
+      return responses.map(response => {
+        let formattedValues = this.formatAjaxData(response[0]);
+        return {
+          key: response[0][1][0].country.value,
+          values: formattedValues.reverse()
+        };
+      });
+    }).then(lineData => {
+      this.setState({ dataPoints: lineData });
     });
   },
   render: function(){
@@ -91,7 +88,7 @@ export default React.createClass({
           <ChartOptions
             className='col-md-8'
             handleClick={this.handleClick}
-          />;
+          />
 
         </div>
         <Chart
