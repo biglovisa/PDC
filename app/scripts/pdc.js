@@ -8,9 +8,9 @@ import Options        from './util/api';
 
 export default React.createClass({
   getInitialState: function() {
-    return { dataPoints: [], country: '', secondCountry: '', chartOption: '' };
+    return { dataPoints: [], currentCountries: [], holder: [] };
   },
-  updateStateWithData: function(data){
+  updateStateWithData: function(data, currentButton){
     var datum = data[1].splice(1);
 
     var formattedValues = datum.reduce(function(array, dataPoint){
@@ -20,7 +20,7 @@ export default React.createClass({
     }, []);
 
     var lineData = [{
-      key: this.state.currentButton.key,
+      key: currentButton.key,
       values: formattedValues.reverse()
     }];
 
@@ -31,10 +31,10 @@ export default React.createClass({
 
   },
   handleSelect: function(country){
-    this.setState({ country: country });
-    // set the country state
-    // create dataset obejcts and add them this.state.currentCountries
-    // limit the length to 2
+    this.state.holder.unshift(country);
+    var countries = this.state.holder.slice(0, 2);
+
+    this.setState({ currentCountries: countries });
   },
   handleClick: function(clicked) {
     var options = {
@@ -56,13 +56,11 @@ export default React.createClass({
              query: 'IT.CEL.SETS.P2' }
     }
 
-    this.setState({ chartOption: clicked });
-    this.setState({ currentButton: options[clicked] });
+    var currentButton = options[clicked];
 
-    // set state with util function and then reference i
-    getCountryData(this.props.countries[this.state.country], this.state.currentButton.query)
+    getCountryData(this.props.countries[this.state.country], currentButton.query)
       .then(response => {
-        this.updateStateWithData(response);
+        this.updateStateWithData(response, currentButton);
       }, error => {
         console.error('error:', error);
     });
