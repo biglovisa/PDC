@@ -15,8 +15,7 @@ export default React.createClass({
     var datum = data[1].splice(1);
 
     var formattedValues = datum.reduce(function(array, dataPoint){
-      array.push({label: parseInt(dataPoint.date),
-                  value: parseInt(dataPoint.value)});
+      array.push({label: parseInt(dataPoint.date), value: parseInt(dataPoint.value)});
       return array;
     }, []);
 

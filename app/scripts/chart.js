@@ -6,7 +6,7 @@ export default React.createClass({
   render: function(){
     var lineData = this.props.values;
 
-    var type = "line";
+    var type = "multiBar";
     let options = {
       padding: {
         top: 20,
@@ -17,6 +17,12 @@ export default React.createClass({
       size: {
         width: 1000,
         height: 500
+      },
+      subchart: true,
+      zoom: true,
+      grid: {
+        x: false,
+        y: true
       },
     };
 
