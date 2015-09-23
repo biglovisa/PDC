@@ -9,7 +9,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ["react-hot", "babel-loader?stage=0"],
+        loaders: ["jsx-loader", "babel-loader?stage=0"],
       },
       {
         test: /\.json$/,
@@ -22,4 +22,5 @@ module.exports = {
       { test: /\.css$/, loader: 'style-loader!css-loader' }
     ],
   },
+  plugins: []
 }
