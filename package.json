@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "a public data compiler",
   "engines": {
-    "node": "0.12.7"
+    "node": "0.12.7",
+    "npm": "2.11.3"
   },
   "main": "server.js",
   "scripts": {
