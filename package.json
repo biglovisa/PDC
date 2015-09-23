@@ -2,6 +2,9 @@
   "name": "public-data-compiler",
   "version": "0.0.1",
   "description": "a public data compiler",
+  "engines": {
+    "node": "0.12.7"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
