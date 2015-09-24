@@ -89,3 +89,8 @@ body {
 .chart {
   padding-top: 30px;
 }
+
+.info {
+  text-align: center;
+  padding-top: 100px;
+}

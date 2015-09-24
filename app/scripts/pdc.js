@@ -14,12 +14,12 @@ export default React.createClass({
     if (this.state.dataPoints.length) {
       return <Chart values={this.state.dataPoints} />
     } else {
-      return <p>Pick two countries</p>
+      return <h4 className="info">Select countries to compare</h4>
     }
   },
   formatAjaxData: function(data){
     var formattedValues = data.reduce(function(array, dataPoint){
-      array.push({label: parseInt(dataPoint.date), value: parseInt(dataPoint.value)});
+      array.push({label: parseInt(dataPoint.date), value: parseFloat(dataPoint.value).toFixed(2)});
       return array;
     }, []);
 
@@ -52,10 +52,10 @@ export default React.createClass({
     }
 
     var currentButton = options[clicked];
+
     var responsePromises = this.state.currentCountries.map(country => {
       return getCountryData(this.props.countries[country], currentButton.query);
     });
-    console.log("resp promises", responsePromises);
 
     Promise.all(responsePromises).then(function() {
       var responses = Array.prototype.slice.call(arguments, 0, responsePromises.length);
