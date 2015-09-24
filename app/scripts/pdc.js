@@ -1,4 +1,3 @@
-
 import React          from 'react';
 import Header         from './header';
 import SelectCountry  from './select_country';
@@ -11,10 +10,15 @@ export default React.createClass({
   getInitialState: function() {
     return { dataPoints: [], currentCountries: [], holder: [] };
   },
+  renderChart: function() {
+    if (this.state.dataPoints.length) {
+      return <Chart values={this.state.dataPoints} />
+    } else {
+      return <p>Pick two countries</p>
+    }
+  },
   formatAjaxData: function(data){
-    var datum = data[1].splice(1);
-
-    var formattedValues = datum.reduce(function(array, dataPoint){
+    var formattedValues = data.reduce(function(array, dataPoint){
       array.push({label: parseInt(dataPoint.date), value: parseInt(dataPoint.value)});
       return array;
     }, []);
@@ -51,16 +55,19 @@ export default React.createClass({
     var responsePromises = this.state.currentCountries.map(country => {
       return getCountryData(this.props.countries[country], currentButton.query);
     });
+    console.log("resp promises", responsePromises);
 
-    $.when(...responsePromises).then((...responses) => {
-      return responses.map(response => {
-        let formattedValues = this.formatAjaxData(response[0]);
+    Promise.all(responsePromises).then(function() {
+      var responses = Array.prototype.slice.call(arguments, 0, responsePromises.length);
+      return responses[0].map(response => {
+        var responseData = response;
+        let formattedValues = this.formatAjaxData(response[1]);
         return {
-          key: response[0][1][0].country.value,
+          key: response[1][1].country.value,
           values: formattedValues.reverse()
         };
       });
-    }).then(lineData => {
+    }.bind(this)).then(lineData => {
       this.setState({ dataPoints: lineData });
     });
   },
@@ -91,9 +98,7 @@ export default React.createClass({
           />
 
         </div>
-        <Chart
-          values={this.state.dataPoints}
-        />
+        {this.renderChart()}
       </div>
     );
   },
