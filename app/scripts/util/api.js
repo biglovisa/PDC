@@ -5,7 +5,7 @@ function getCountryData(countryCode, dataType) {
     dataType: 'jsonp',
     jsonp: 'prefix',
     jsonpCallback: 'jquery_'+(new Date).getTime(),
-    headers: {'Access-Control-Allow-Origin': 'http://localhost:8080'},
+    headers: {'Access-Control-Allow-Origin': 'https://obscure-retreat-5519.herokuapp.com/'},
   });
 }
 
