@@ -74,7 +74,13 @@ export default React.createClass({
   },
   render: function(){
     return (
-      <div className='container pdc col-lg-12'>
+      <div>
+        <div className='options'>
+          <ChartOptions
+            className='options col-md-10'
+            handleClick={this.handleClick}
+          />
+        </div>
         <div className='first-country col-md-6'>
           <SelectCountry
             value='firstCountry'
@@ -90,10 +96,6 @@ export default React.createClass({
             countries={Object.keys(this.props.countries)}
           />
         </div>
-        <ChartOptions
-          className='col-md-10'
-          handleClick={this.handleClick}
-        />
 
         {this.renderChart()}
       </div>

@@ -8,7 +8,7 @@ export default React.createClass({
   },
   render: function(){
     return (
-      <div className='global-options'>
+      <div className='options'>
         <ChartOptions
           className='col-md-10'
           handleClick={this.handleClick}

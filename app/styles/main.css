@@ -45,10 +45,6 @@ body {
 
 /* search */
 
-.pdc {
-  margin-top: 30px;
-}
-
 .dropdown {
   max-height: 300px;
   border: 1px solid lightgrey;
@@ -69,23 +65,20 @@ body {
 }
 
 .first-country {
+  margin-top: 2%;
   display: inline-block;
 }
 
 .second-country {
+  margin-top: 2%;
   float: right;
 }
 
-.chart-options {
-  margin-top: 1%;
-}
-
-.global-options {
-  margin-top: 20px;
+.options {
+  margin-top: 2%;
 }
 
 .select-country {
-  margin-top: 1%;
   width: 100%;
 }
 
