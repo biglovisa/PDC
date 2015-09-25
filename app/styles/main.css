@@ -45,6 +45,10 @@ body {
 
 /* search */
 
+.pdc {
+  margin-top: 30px;
+}
+
 .dropdown {
   max-height: 300px;
   border: 1px solid lightgrey;
@@ -64,9 +68,6 @@ body {
   background-color: rgba(211, 211, 211, 0.4);
 }
 
-.search-board {
-}
-
 .first-country {
   display: inline-block;
 }
@@ -77,6 +78,10 @@ body {
 
 .chart-options {
   margin-top: 1%;
+}
+
+.global-options {
+  margin-top: 20px;
 }
 
 .select-country {
