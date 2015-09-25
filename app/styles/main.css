@@ -86,6 +86,11 @@ body {
 
 /* chart */
 
+.geo-chart {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 .chart {
   padding-top: 30px;
 }
