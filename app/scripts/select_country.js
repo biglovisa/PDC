@@ -23,22 +23,22 @@ export default React.createClass({
       });
 
       dropdown = (
-         <ul style={{overflow: 'auto'}} className='dropdown' >
-           {listItems}
+        <ul style={{overflow: 'auto'}} className='dropdown' >
+          {listItems}
         </ul>
       )
     }
 
     return (
       <div className='search-form'>
-        <input
-          type='text'
-          className='col-md-12'
-          value={this.state.inputText}
-          placeholder='Select a country...'
-          onChange={this.handleSearch}
-        />
-        { dropdown }
+          <input
+            type='text'
+            className='col-md-12'
+            value={this.state.inputText}
+            placeholder='Search for a country...'
+            onChange={this.handleSearch}
+          />
+          { dropdown }
       </div>
     );
   },

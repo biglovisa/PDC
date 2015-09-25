@@ -1,12 +1,9 @@
-import React from "react";
-import Chart from "c3-react";
+import React from 'react';
+import Chart from 'c3-react';
 
 export default React.createClass({
 
   render: function(){
-    var lineData = this.props.values;
-
-    var type = "multiBar";
     let options = {
       padding: {
         top: 20,
@@ -26,11 +23,13 @@ export default React.createClass({
       },
     };
 
-    var lineChart = <Chart data={lineData} type={type} options={options} />
+    var lineChart = <Chart data={this.props.values} type='lineBar' options={options} />
 
     return (
-      <div className="chart pull-left">
+      <div className='chart pull-left' key='chart'>
+        <h5 className="details">{this.props.details}</h5>
         {lineChart}
+        }
       </div>
     );
   },

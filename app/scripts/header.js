@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export default React.createClass({
   render: function(){
     return (
-      <div className="header">
-        <div className="container top-bar">
+      <div className='header'>
+        <div className='container top-bar'>
           <h3>
           Public Data Compiler
           </h3>
@@ -20,8 +20,8 @@ export default React.createClass({
 var RepositoryLink = React.createClass({
   render: function(){
     return (
-      <a href="https://github.com/applegrain/PDC"
-      className="repository-link"
+      <a href='https://github.com/applegrain/PDC'
+      className='repository-link'
       >
       Repository
       </a>

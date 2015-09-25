@@ -8,13 +8,13 @@ import Options        from './util/api';
 
 export default React.createClass({
   getInitialState: function() {
-    return { dataPoints: [], currentCountries: [], holder: [] };
+    return { dataPoints: [], currentCountries: [], holder: [], queryDetails: '' };
   },
   renderChart: function() {
     if (this.state.dataPoints.length) {
-      return <Chart values={this.state.dataPoints} />
+      return <Chart values={this.state.dataPoints} details={this.state.queryDetails} />
     } else {
-      return <h4 className="info">Select countries to compare</h4>
+      return <h5 className="info">Select countries to compare</h5>
     }
   },
   formatAjaxData: function(data){
@@ -52,6 +52,7 @@ export default React.createClass({
     }
 
     var currentButton = options[clicked];
+    this.setState({ queryDetails: currentButton.key });
 
     var responsePromises = this.state.currentCountries.map(country => {
       return getCountryData(this.props.countries[country], currentButton.query);
