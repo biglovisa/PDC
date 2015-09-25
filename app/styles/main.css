@@ -54,9 +54,11 @@ body {
   width: 95%;
   background-color: white;
   margin-top: 5%;
+  padding-left: 0;
 }
 
 .dropdown li {
+  padding-left: 10px;
   list-style: none;
 }
 
