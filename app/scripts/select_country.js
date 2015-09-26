@@ -16,10 +16,14 @@ export default React.createClass({
     var dropdown = null;
 
     if (this.state.showDropdown && this.state.inputText){
+      var pattern = this.state.inputText.toLowerCase().split(" ").map(function(el){
+        return "(" + el + ".*)"
+      }).join(" ");
+
       var listItems = this.props.countries.filter(v => {
-        return v.toLowerCase().indexOf(this.state.inputText.toLowerCase()) > -1;
+        return v.toLowerCase().match(new RegExp(pattern));
       }).map(item => {
-        // Does this look weird?
+        // Does this look weird? Should it be on one line since it's not a react component but an html element?
         return <li
                 onClick={this.selectValue.bind(this, item)}
                 key={item}
