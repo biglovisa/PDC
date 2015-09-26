@@ -10,9 +10,7 @@ export default React.createClass({
     return { activeTab: '' }
   },
   handleClick: function(clicked){
-    console.log(this.state);
     this.setState({ activeTab: clicked });
-    console.log(this.state);
   },
   renderContent: function() {
     if (this.state.activeTab == 'geo') {

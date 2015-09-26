@@ -8,11 +8,11 @@ export default React.createClass({
     var buttons = [
       {
         key: 'geo',
-        title: 'Compare Globally'
+        title: 'Compare GDP Globally'
       },
       {
         key: 'two',
-        title: 'Compare One or Two Countries'
+        title: 'Compare Countries'
       }
     ];
 

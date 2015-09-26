@@ -13,3 +13,5 @@ app.get('/', function(request, response) {
 app.listen(PORT, function() {
   console.log("Server is up and running on port: " + PORT)
 });
+
+var server = require('http').createServer(app);

@@ -31,14 +31,16 @@ export default React.createClass({
 
     return (
       <div className='search-form'>
-          <input
-            type='text'
-            className='col-md-12'
-            value={this.state.inputText}
-            placeholder='Search for a country...'
-            onChange={this.handleSearch}
-          />
+        <input
+          type='text'
+          className='col-md-12'
+          value={this.state.inputText}
+          placeholder='Search for a country...'
+          onChange={this.handleSearch}
+        />
+        <div>
           { dropdown }
+        </div>
       </div>
     );
   },
