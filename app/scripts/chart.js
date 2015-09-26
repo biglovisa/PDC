@@ -23,13 +23,16 @@ export default React.createClass({
       },
     };
 
-    var lineChart = <Chart data={this.props.values} type='lineBar' options={options} />
+    var lineChart = <Chart
+                     data={this.props.values}
+                     type='lineBar'
+                     options={options}
+                    />
 
     return (
       <div className='chart pull-left' key='chart'>
-        <h5 className="details">{this.props.details}</h5>
-        {lineChart}
-        }
+        <h5 className="details">{ this.props.details }</h5>
+        { lineChart }
       </div>
     );
   },

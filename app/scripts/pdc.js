@@ -14,20 +14,26 @@ export default React.createClass({
   },
   renderContent: function() {
     if (this.state.activeTab == 'geo') {
-      return <CompareGlobally countries={countries} />
+      return <CompareGlobally
+              countries={countries}
+             />
     } else if (this.state.activeTab == 'two') {
-      return <CompareTwoCountries countries={countries} />
+      return <CompareTwoCountries
+              countries={countries}
+             />
     } else {
-      return <h5 className="info">Select to compare globally or individual countries</h5>
+      return <h5 className="info">Select countries to compare or view GDP globally</h5>
     }
   },
   render: function() {
     return (
       <div className="container">
         <Header />
-        <ChartType handleClick={this.handleClick} />
+        <ChartType
+         handleClick={ this.handleClick }
+        />
 
-        {this.renderContent()}
+        { this.renderContent() }
       </div>
     );
   }

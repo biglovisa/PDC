@@ -4,15 +4,19 @@ import SelectCountry  from './select_country';
 import ChartOptions   from './chart_options';
 import Chart          from './chart';
 import getCountryData from './util/api';
+// TODO: figure out why this doesn't render
 import Options        from './util/api';
 
 export default React.createClass({
-  getInitialState: function() {
+  getInitialState: function(){
     return { dataPoints: [], currentCountries: [], holder: [], queryDetails: '' };
   },
-  renderChart: function() {
+  renderChart: function(){
     if (this.state.dataPoints.length) {
-      return <Chart values={this.state.dataPoints} details={this.state.queryDetails} />
+      return <Chart
+              values={ this.state.dataPoints }
+              details={ this.state.queryDetails }
+             />
     } else {
       return <h5 className="info">Select countries to compare</h5>
     }
@@ -32,6 +36,7 @@ export default React.createClass({
     this.setState({ currentCountries: countries });
   },
   handleClick: function(clicked) {
+    // TODO: remove this
     var options = {
       gdp: { key: 'GDP per capita in USD',
              query: 'NY.GDP.PCAP.CD' },
@@ -78,26 +83,26 @@ export default React.createClass({
         <div className='options'>
           <ChartOptions
             className='options col-md-10'
-            handleClick={this.handleClick}
+            handleClick={ this.handleClick }
           />
         </div>
         <div className='first-country col-md-6'>
           <SelectCountry
             value='firstCountry'
-            onSelect={this.handleSelect}
-            countries={Object.keys(this.props.countries)}
+            onSelect={ this.handleSelect }
+            countries={ Object.keys(this.props.countries) }
           />
         </div>
 
         <div className='second-country col-md-6'>
           <SelectCountry
             value='secondCountry'
-            onSelect={this.handleSelect}
-            countries={Object.keys(this.props.countries)}
+            onSelect={ this.handleSelect }
+            countries={ Object.keys(this.props.countries) }
           />
         </div>
 
-        {this.renderChart()}
+        { this.renderChart() }
       </div>
     );
   },

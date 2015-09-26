@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default React.createClass({
-  getInitialState: function() {
+  getInitialState: function(){
     return { inputText: '', showDropdown: false }
   },
   handleSearch: function(e){
@@ -19,11 +19,21 @@ export default React.createClass({
       var listItems = this.props.countries.filter(v => {
         return v.toLowerCase().indexOf(this.state.inputText.toLowerCase()) > -1;
       }).map(item => {
-        return <li onClick={this.selectValue.bind(this, item)} key={item} >{item}</li>;
+        // Does this look weird?
+        return <li
+                onClick={this.selectValue.bind(this, item)}
+                key={item}
+               >
+               {item}
+               </li>;
       });
 
       dropdown = (
-        <ul style={{overflow: 'auto'}} className='dropdown' >
+        // See above. Does this look weird?
+        <ul
+         style={{overflow: 'auto'}}
+         className='dropdown'
+        >
           {listItems}
         </ul>
       )

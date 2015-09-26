@@ -21,7 +21,7 @@ var RepositoryLink = React.createClass({
   render: function(){
     return (
       <a href='https://github.com/applegrain/PDC'
-      className='repository-link'
+         className='repository-link'
       >
       Repository
       </a>

@@ -4,7 +4,7 @@ export default React.createClass({
   handleClick: function(e){
     this.props.handleClick(e.target.value);
   },
-  render: function() {
+  render: function(){
     var buttons = [
       {
         key: 'geo',
@@ -21,7 +21,7 @@ export default React.createClass({
         <button
           key={ index }
           value={ object.key }
-          onClick={this.handleClick}
+          onClick={ this.handleClick }
           className='btn btn-default'
         >
           { object.title }

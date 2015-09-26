@@ -1,12 +1,9 @@
 import React          from 'react';
 import ChartOptions   from './chart_options';
 import getCountryData from './util/api';
-var Chart = require('react-google-charts').Chart;
+import { Chart }      from 'react-google-charts';
 
 export default React.createClass({
-  handleClick: function(clicked){
-    console.log(clicked);
-  },
   renderChart: function(){
 
     return <Chart
@@ -15,18 +12,20 @@ export default React.createClass({
             graph_id='GeoChart'
             width={'100%'}
             height={'500px'}
-            legend_toggle={true} />
+            legend_toggle={true}
+          />
   },
   render: function(){
     return (
       <div className='geo-chart'>
         <h5 className="details">GDP in USD for 2014</h5>
-        {this.renderChart()}
+        { this.renderChart() }
       </div>
     );
   },
 });
 
+// TODO: Put this in a module
 var data = [
   ['Country', 'GDP'],
   ['United States', 17419000],
