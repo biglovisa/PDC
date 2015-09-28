@@ -2,10 +2,11 @@ function getCountryData(countryCode, dataType) {
   return $.ajax({
     url: `http://api.worldbank.org/countries/${countryCode}/indicators/${dataType}?per_page=56&format=jsonP`,
     type: 'GET',
-    dataType: 'json',
-    headers: {'Access-Control-Allow-Origin': 'http://obscure-retreat-5519.herokuapp.com/'},
+    dataType: 'jsonp',
+    jsonp: 'prefix',
+    jsonpCallback: 'jquery_'+(new Date).getTime(),
+    headers: { 'Access-Control-Allow-Origin': '*' }
   });
 }
 
 export default getCountryData;
-
