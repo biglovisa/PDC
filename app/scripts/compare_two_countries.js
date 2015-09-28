@@ -1,21 +1,21 @@
-import React          from 'react';
-import Header         from './header';
-import SelectCountry  from './select_country';
-import ChartOptions   from './chart_options';
-import Chart          from './chart';
-import getCountryData from './util/api';
-// TODO: figure out why this doesn't render
-import Options        from './util/api';
+import React             from 'react';
+import Header            from './header';
+import SelectCountry     from './select_country';
+import ChartOptions      from './chart_options';
+import Chart             from './chart';
+import SelectedCountries from './selected_countries';
+import getCountryData    from './util/api';
+import options           from './constants/data_types';
 
 export default React.createClass({
   getInitialState: function(){
-    return { dataPoints: [], currentCountries: [], holder: [], queryDetails: '' };
+    return { dataPoints: [], currentCountries: [], currentDataOption: options['gdp'] };
   },
   renderChart: function(){
     if (this.state.dataPoints.length) {
       return <Chart
               values={ this.state.dataPoints }
-              details={ this.state.queryDetails }
+              details={ this.state.currentDataOption.key }
              />
     } else {
       return <h5 className="info">Select countries to compare</h5>
@@ -29,38 +29,32 @@ export default React.createClass({
 
     return formattedValues;
   },
-  handleSelect: function(country){
-    this.state.holder.unshift(country);
-    var countries = this.state.holder.slice(0, 2);
+  handleSelect: function(country) {
+    var nextCountries = this.state.currentCountries.concat(country);
+    this.setState({ currentCountries: nextCountries });
 
-    this.setState({ currentCountries: countries });
+    this.getCountryData(nextCountries);
   },
   handleClick: function(clicked) {
-    // TODO: remove this
-    var options = {
-      gdp: { key: 'GDP per capita in USD',
-             query: 'NY.GDP.PCAP.CD' },
-      mil: { key: 'Military expenditure in % of GDP',
-             query: 'MS.MIL.XPND.GD.ZS' },
-      deb: { key: 'Central government debt in % of GDP',
-             query: 'SL.UEM.TOTL.ZS' },
-      une: { key: 'Total unemployment in % of total labor force',
-             query: 'GC.DOD.TOTL.GD.ZS' },
-      exp: { key: 'Government expenses in % of GDP',
-             query: 'GC.XPN.TOTL.GD.ZS' },
-      tax: { key: 'Tax revenue in % of GDP',
-             query: 'GC.TAX.TOTL.GD.ZS' },
-      int: { key: 'Internet users per 100 people',
-             query: 'IT.NET.USER.P2' },
-      cel: { key: 'Cell phone users per 100 people',
-             query: 'IT.CEL.SETS.P2' }
+    var currentButton = options[clicked];
+    this.setState({ currentDataOption: currentButton });
+
+    this.getCountryData(this.state.currentCountries);
+  },
+  removeCountry: function(country) {
+    var countries = this.state.currentCountries;
+    countries.splice(countries.indexOf(country, 1));
+    this.setState({ currentCountries: countries });
+
+    this.getCountryData(countries);
+  },
+  getCountryData: function(countries) {
+    if (!countries.length) {
+      return this.setState({ dataPoints: [] });
     }
 
-    var currentButton = options[clicked];
-    this.setState({ queryDetails: currentButton.key });
-
-    var responsePromises = this.state.currentCountries.map(country => {
-      return getCountryData(this.props.countries[country], currentButton.query);
+    var responsePromises = countries.map(country => {
+      return getCountryData(this.props.countries[country], this.state.currentDataOption.query);
     });
 
     Promise.all(responsePromises).then(function() {
@@ -86,20 +80,18 @@ export default React.createClass({
             handleClick={ this.handleClick }
           />
         </div>
-        <div className='first-country col-md-6'>
-          <SelectCountry
-            value='firstCountry'
-            onSelect={ this.handleSelect }
-            countries={ Object.keys(this.props.countries) }
-          />
-        </div>
 
-        <div className='second-country col-md-6'>
-          <SelectCountry
-            value='secondCountry'
-            onSelect={ this.handleSelect }
-            countries={ Object.keys(this.props.countries) }
-          />
+        <div className='countries'>
+          <div className='first-country col-md-4'>
+            <SelectCountry
+              onSelect={ this.handleSelect }
+              countries={ Object.keys(this.props.countries) }
+            />
+          </div>
+
+          <SelectedCountries
+            countries={ this.state.currentCountries }
+            onDelete={ this.removeCountry }/>
         </div>
 
         { this.renderChart() }

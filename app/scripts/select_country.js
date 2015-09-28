@@ -23,24 +23,23 @@ export default React.createClass({
       var listItems = this.props.countries.filter(v => {
         return v.toLowerCase().match(new RegExp(pattern));
       }).map(item => {
-        // Does this look weird? Should it be on one line since it's not a react component but an html element?
-        return <li
-                onClick={this.selectValue.bind(this, item)}
-                key={item}
-               >
-               {item}
-               </li>;
+        return (
+          <li
+            onClick={this.selectValue.bind(this, item)}
+            key={item} >
+            {item}
+          </li>
+        );
       });
 
       dropdown = (
-        // See above. Does this look weird?
         <ul
-         style={{overflow: 'auto'}}
-         className='dropdown'
+          style={{overflow: 'auto'}}
+          className='dropdown'
         >
           {listItems}
         </ul>
-      )
+      );
     }
 
     return (

@@ -51,9 +51,9 @@ body {
   border-radius: 2px 2px 10px 10px;
   position: absolute;
   z-index: 3;
-  width: 95%;
+  width: 91%;
   background-color: white;
-  margin-top: 5%;
+  margin-top: 8%;
   padding-left: 0;
 }
 
@@ -66,23 +66,22 @@ body {
   background-color: rgba(211, 211, 211, 0.4);
 }
 
-.first-country {
-  margin-top: 2%;
-  display: inline-block;
+.countries {
+  margin-top: 2em;
 }
 
-.second-country {
-  margin-top: 2%;
-  float: right;
+.countries li {
+  list-style-type: none;
+}
+
+.first-country {
+  width: 30%;
 }
 
 .options {
   margin-top: 2%;
 }
 
-.select-country {
-  width: 100%;
-}
 
 /* chart */
 

@@ -1,4 +1,4 @@
-[
+export default [
   ['Country', 'GDP'],
   ['United States', 17419000],
   ['China', 10360105],
