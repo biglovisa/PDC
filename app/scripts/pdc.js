@@ -1,8 +1,9 @@
-import React                from 'react';
-import Header               from './Header';
-import GlobalGdp      from './GlobalGdp';
+import React             from 'react';
+import Header            from './Header';
+import Footer            from './Footer';
+import GlobalGdp         from './GlobalGdp';
 import CompareCountries  from './CompareCountries';
-import countries            from './constants/Countries.json';
+import countries         from './constants/Countries.json';
 
 export default React.createClass({
   getInitialState: function(){
@@ -26,6 +27,8 @@ export default React.createClass({
         <Header handleLinkClick={this.handleClick} />
 
         { this.renderContent() }
+
+        <Footer />
       </div>
     );
   }

@@ -93,6 +93,7 @@ body {
 
 .chart {
   padding-top: 30px;
+  padding-bottom: 4%;
 }
 
 .info {
@@ -102,4 +103,21 @@ body {
 
 .details {
   margin-left: 1.5%;
+}
+
+/* footer */
+
+.footer {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+}
+
+.footer a {
+  color: green;
+}
+
+.footer a:hover {
+  color: darkgreen;
 }
