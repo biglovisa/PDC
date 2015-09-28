@@ -79,6 +79,10 @@ body {
   width: 30%;
 }
 
+.first-country input {
+  padding-left: 5%;
+}
+
 .options {
   margin-top: 2%;
 }
