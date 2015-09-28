@@ -40,4 +40,3 @@ export default React.createClass({
     );
   },
 });
-

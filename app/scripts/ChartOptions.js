@@ -46,7 +46,7 @@ export default React.createClass({
           key={ index }
           value={ object.key }
           onClick={ this.handleClick }
-          className='btn btn-success'
+          className='chart-button btn btn-success'
         >
           { object.title }
         </button>
