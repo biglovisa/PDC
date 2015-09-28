@@ -8,7 +8,7 @@ import options        from './constants/data_types';
 
 export default React.createClass({
   getInitialState: function(){
-    return { dataPoints: [], currentCountries: [], holder: [], queryDetails: '' };
+    return { dataPoints: [], currentCountries: [], queryDetails: '' };
   },
   renderChart: function(){
     if (this.state.dataPoints.length) {
@@ -29,10 +29,7 @@ export default React.createClass({
     return formattedValues;
   },
   handleSelect: function(country){
-    this.state.holder.unshift(country);
-    var countries = this.state.holder.slice(0, 2);
-
-    this.setState({ currentCountries: countries });
+    this.setState({ currentCountries: this.state.currentCountries.concat(country) });
   },
   handleClick: function(clicked) {
     var currentButton = options[clicked];
@@ -72,15 +69,6 @@ export default React.createClass({
             countries={ Object.keys(this.props.countries) }
           />
         </div>
-
-        <div className='second-country col-md-6'>
-          <SelectCountry
-            value='secondCountry'
-            onSelect={ this.handleSelect }
-            countries={ Object.keys(this.props.countries) }
-          />
-        </div>
-
         { this.renderChart() }
       </div>
     );

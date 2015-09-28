@@ -51,9 +51,9 @@ body {
   border-radius: 2px 2px 10px 10px;
   position: absolute;
   z-index: 3;
-  width: 95%;
+  width: 91%;
   background-color: white;
-  margin-top: 5%;
+  margin-top: 8%;
   padding-left: 0;
 }
 
@@ -69,19 +69,11 @@ body {
 .first-country {
   margin-top: 2%;
   display: inline-block;
-}
-
-.second-country {
-  margin-top: 2%;
-  float: right;
+  width: 30%;
 }
 
 .options {
   margin-top: 2%;
-}
-
-.select-country {
-  width: 100%;
 }
 
 /* chart */
