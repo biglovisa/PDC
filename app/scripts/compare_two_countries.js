@@ -1,20 +1,21 @@
-import React          from 'react';
-import Header         from './header';
-import SelectCountry  from './select_country';
-import ChartOptions   from './chart_options';
-import Chart          from './chart';
-import getCountryData from './util/api';
-import options        from './constants/data_types';
+import React             from 'react';
+import Header            from './header';
+import SelectCountry     from './select_country';
+import ChartOptions      from './chart_options';
+import Chart             from './chart';
+import SelectedCountries from './selected_countries';
+import getCountryData    from './util/api';
+import options           from './constants/data_types';
 
 export default React.createClass({
   getInitialState: function(){
-    return { dataPoints: [], currentCountries: [], queryDetails: '' };
+    return { dataPoints: [], currentCountries: [], currentDataOption: options['gdp'] };
   },
   renderChart: function(){
     if (this.state.dataPoints.length) {
       return <Chart
               values={ this.state.dataPoints }
-              details={ this.state.queryDetails }
+              details={ this.state.currentDataOption.key }
              />
     } else {
       return <h5 className="info">Select countries to compare</h5>
@@ -62,13 +63,20 @@ export default React.createClass({
             handleClick={ this.handleClick }
           />
         </div>
-        <div className='first-country col-md-6'>
-          <SelectCountry
-            value='firstCountry'
-            onSelect={ this.handleSelect }
-            countries={ Object.keys(this.props.countries) }
-          />
+
+        <div className='countries'>
+          <div className='first-country col-md-4'>
+            <SelectCountry
+              onSelect={ this.handleSelect }
+              countries={ Object.keys(this.props.countries) }
+            />
+          </div>
+
+          <SelectedCountries
+            countries={ this.state.currentCountries }
+            onDelete={ this.removeCountry }/>
         </div>
+
         { this.renderChart() }
       </div>
     );

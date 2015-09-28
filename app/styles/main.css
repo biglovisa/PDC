@@ -66,15 +66,22 @@ body {
   background-color: rgba(211, 211, 211, 0.4);
 }
 
+.countries {
+  margin-top: 2em;
+}
+
+.countries li {
+  list-style-type: none;
+}
+
 .first-country {
-  margin-top: 2%;
-  display: inline-block;
   width: 30%;
 }
 
 .options {
   margin-top: 2%;
 }
+
 
 /* chart */
 
