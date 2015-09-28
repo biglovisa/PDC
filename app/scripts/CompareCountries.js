@@ -1,11 +1,11 @@
 import React             from 'react';
-import Header            from './header';
-import SelectCountry     from './select_country';
-import ChartOptions      from './chart_options';
-import Chart             from './chart';
-import SelectedCountries from './selected_countries';
-import getCountryData    from './util/api';
-import options           from './constants/data_types';
+import Header            from './Header';
+import SelectCountry     from './SelectCountry';
+import ChartOptions      from './ChartOptions';
+import Chart             from './Chart';
+import SelectedCountries from './SelectedCountries';
+import getCountryData    from './util/Api';
+import options           from './constants/DataTypes';
 
 export default React.createClass({
   getInitialState: function(){

@@ -1,7 +1,7 @@
 import React          from 'react';
-import ChartOptions   from './chart_options';
+import ChartOptions   from './ChartOptions';
 import { Chart }      from 'react-google-charts';
-import gdpValues      from './constants/gdp_values';
+import gdpValues      from './constants/GdpValues';
 
 export default React.createClass({
   renderChart: function(){

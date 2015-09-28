@@ -1,8 +1,8 @@
 import React                from 'react';
-import Header               from './header';
-import CompareGlobally      from './compare_globally';
-import CompareTwoCountries  from './compare_two_countries';
-import countries            from './constants/countries.json';
+import Header               from './Header';
+import GlobalGdp      from './GlobalGdp';
+import CompareCountries  from './CompareCountries';
+import countries            from './constants/Countries.json';
 
 export default React.createClass({
   getInitialState: function(){
@@ -13,9 +13,9 @@ export default React.createClass({
   },
   renderContent: function() {
     if (this.state.activeTab == 'geo') {
-      return <CompareGlobally countries={countries} />
+      return <GlobalGdp countries={countries} />
     } else if (this.state.activeTab == 'two') {
-      return <CompareTwoCountries countries={countries} />
+      return <CompareCountries countries={countries} />
     } else {
       return <h5 className="info">Select countries to compare or view GDP globally</h5>
     }
