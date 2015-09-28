@@ -92,8 +92,11 @@ body {
   margin-top: 2%;
 }
 
-.chart-button:active {
-  background-color:white !important;
+.chart-button.btn.btn-success.active {
+  background-color: white;
+  color: green;
+  border: 1px solid green;
+  outline: none;
 }
 
 .selected-countries li {

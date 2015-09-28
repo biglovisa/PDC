@@ -1,10 +1,17 @@
 import React from 'react';
 
 export default React.createClass({
+  getInitialState: function() {
+    return {activeButton: 'gdp'}
+  },
   handleClick: function(e) {
     this.props.handleClick(e.target.value);
+
+    this.setState({activeButton: e.target.value})
   },
   render: function() {
+    var baseClass = 'chart-button btn btn-success'
+
     var buttons = [
       {
         key: 'gdp',
@@ -46,7 +53,8 @@ export default React.createClass({
           key={index}
           value={object.key}
           onClick={this.handleClick}
-          className='chart-button btn btn-success'
+          className={this.state.activeButton == object.key ?
+                          baseClass + ' active' : baseClass}
         >
           {object.title}
         </button>
