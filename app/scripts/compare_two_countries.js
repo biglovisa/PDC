@@ -29,15 +29,32 @@ export default React.createClass({
 
     return formattedValues;
   },
-  handleSelect: function(country){
-    this.setState({ currentCountries: this.state.currentCountries.concat(country) });
+  handleSelect: function(country) {
+    var nextCountries = this.state.currentCountries.concat(country);
+    this.setState({ currentCountries: nextCountries });
+
+    this.getCountryData(nextCountries);
   },
   handleClick: function(clicked) {
     var currentButton = options[clicked];
-    this.setState({ queryDetails: currentButton.key });
+    this.setState({ currentDataOption: currentButton });
 
-    var responsePromises = this.state.currentCountries.map(country => {
-      return getCountryData(this.props.countries[country], currentButton.query);
+    this.getCountryData(this.state.currentCountries);
+  },
+  removeCountry: function(country) {
+    var countries = this.state.currentCountries;
+    countries.splice(countries.indexOf(country, 1));
+    this.setState({ currentCountries: countries });
+
+    this.getCountryData(countries);
+  },
+  getCountryData: function(countries) {
+    if (!countries.length) {
+      return this.setState({ dataPoints: [] });
+    }
+
+    var responsePromises = countries.map(country => {
+      return getCountryData(this.props.countries[country], this.state.currentDataOption.query);
     });
 
     Promise.all(responsePromises).then(function() {
