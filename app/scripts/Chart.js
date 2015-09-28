@@ -3,7 +3,7 @@ import Chart from 'c3-react';
 
 export default React.createClass({
 
-  render: function(){
+  render: function() {
     let options = {
       padding: {
         top: 20,
@@ -34,8 +34,8 @@ export default React.createClass({
 
     return (
       <div className='chart pull-left' key='chart'>
-        <h5 className="details">{ this.props.details }</h5>
-        { lineChart }
+        <h5 className="details">{this.props.details}</h5>
+        {lineChart}
       </div>
     );
   },

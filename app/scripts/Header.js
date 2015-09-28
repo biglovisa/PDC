@@ -4,7 +4,7 @@ export default React.createClass({
   handleClick: function(value) {
     this.props.handleLinkClick(value);
   },
-  render: function(){
+  render: function() {
     return (
       <div className='header'>
         <div className='container top-bar'>

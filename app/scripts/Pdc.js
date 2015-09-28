@@ -6,11 +6,11 @@ import CompareCountries  from './CompareCountries';
 import countries         from './constants/Countries.json';
 
 export default React.createClass({
-  getInitialState: function(){
-    return { activeTab: '' }
+  getInitialState: function() {
+    return {activeTab: ''}
   },
   handleClick: function(clicked){
-    this.setState({ activeTab: clicked });
+    this.setState({activeTab: clicked});
   },
   renderContent: function() {
     if (this.state.activeTab == 'geo') {
@@ -26,7 +26,7 @@ export default React.createClass({
       <div className="container">
         <Header handleLinkClick={this.handleClick} />
 
-        { this.renderContent() }
+        {this.renderContent()}
 
         <Footer />
       </div>

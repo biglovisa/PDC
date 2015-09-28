@@ -1,20 +1,20 @@
 import React from 'react';
 
 export default React.createClass({
-  getInitialState: function(){
-    return { inputText: '', showDropdown: false }
+  getInitialState: function() {
+    return {inputText: '', showDropdown: false};
   },
-  handleSearch: function(e){
+  handleSearch: function(e) {
     this.setState({showDropdown: true, inputText: e.target.value});
   },
-  selectValue: function(item){
+  selectValue: function(item) {
     this.setState({showDropdown: false, inputText: item});
 
     this.props.onSelect(item);
 
-    this.setState({ inputText: '' });
+    this.setState({inputText: ''});
   },
-  render: function(){
+  render: function() {
     var dropdown = null;
 
     if (this.state.showDropdown && this.state.inputText){
@@ -54,7 +54,7 @@ export default React.createClass({
           onChange={this.handleSearch}
         />
         <div>
-          { dropdown }
+          {dropdown}
         </div>
       </div>
     );

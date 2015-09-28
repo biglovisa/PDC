@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default React.createClass({
-  handleClick: function(e){
+  handleClick: function(e) {
     this.props.handleClick(e.target.value);
   },
-  render: function(){
+  render: function() {
     var buttons = [
       {
         key: 'gdp',
@@ -40,22 +40,22 @@ export default React.createClass({
       }
     ];
 
-    var buttons = buttons.map(function(object, index){
+    var buttons = buttons.map(function(object, index) {
       return (
         <button
-          key={ index }
-          value={ object.key }
-          onClick={ this.handleClick }
+          key={index}
+          value={object.key}
+          onClick={this.handleClick}
           className='chart-button btn btn-success'
         >
-          { object.title }
+          {object.title}
         </button>
       );
     }.bind(this));
 
     return (
       <div className='btn-group chart-options'>
-        { buttons }
+        {buttons}
       </div>
     );
   },

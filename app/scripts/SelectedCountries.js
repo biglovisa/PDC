@@ -8,7 +8,7 @@ export default React.createClass({
     var countries = this.props.countries.map((country, index) => {
       return (
         <li key={ index }>
-          { country }
+          {country}
           <button
             onClick={this.handleDelete.bind(this, country)}
             className='remove-country btn btn-xs'>
@@ -20,7 +20,7 @@ export default React.createClass({
 
     return (
       <ul className='selected-countries col-md-8'>
-        { countries }
+        {countries}
       </ul>
     );
   }

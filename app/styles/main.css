@@ -88,6 +88,10 @@ body {
   margin-top: 2%;
 }
 
+.chart-button:active {
+  background-color:white !important;
+}
+
 .selected-countries li {
   display: inline;
   list-style-type: none;
