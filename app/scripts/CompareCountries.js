@@ -39,7 +39,7 @@ export default React.createClass({
     var currentButton = options[clicked];
     this.setState({currentDataOption: currentButton });
 
-    this.getCountryData(this.state.currentCountries);
+    this.getCountryData(this.state.currentCountries, currentButton);
   },
   removeCountry: function(country) {
     var countries = this.state.currentCountries;
@@ -48,13 +48,15 @@ export default React.createClass({
 
     this.getCountryData(countries);
   },
-  getCountryData: function(countries) {
+  getCountryData: function(countries, current) {
     if (!countries.length) {
       return this.setState({dataPoints: []});
     }
 
+    var selection = current ? current : this.state.currentDataOption;
+
     var responsePromises = countries.map(country => {
-      return getCountryData(this.props.countries[country], this.state.currentDataOption.query);
+      return getCountryData(this.props.countries[country], selection.query);
     });
 
     Promise.all(responsePromises).then(function() {
