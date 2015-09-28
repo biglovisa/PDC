@@ -10,7 +10,9 @@ export default React.createClass({
   selectValue: function(item){
     this.setState({showDropdown: false, inputText: item});
 
-    this.props.onSelect(item)
+    this.props.onSelect(item);
+
+    this.setState({ inputText: '' });
   },
   render: function(){
     var dropdown = null;
