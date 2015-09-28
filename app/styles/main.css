@@ -88,6 +88,12 @@ body {
   margin-top: 2%;
 }
 
+.selected-countries li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
 .remove-country {
   width: 15px;
   height: 15px;
@@ -96,7 +102,7 @@ body {
   border-radius: 30%;
   margin-left: 0.5%;
   line-height: 0.4;
-  padding-right: 1.6%;
+  padding-right: 1.63%;
 }
 
 .btn:hover {
