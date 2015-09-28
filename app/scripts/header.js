@@ -11,16 +11,13 @@ export default React.createClass({
           <h3>
           Public Data Compiler
           </h3>
-          <a href='https://github.com/applegrain/PDC'className='repository-link'
-          >
-          Repository
+          <a href='https://github.com/applegrain/PDC' className='github-icon'>
+          <i className="fa fa-github-square fa-2x"></i>
           </a>
-          <a className='repository-link' onClick={this.handleClick.bind(this, 'geo')}
-          >
+          <a className='header-link' onClick={this.handleClick.bind(this, 'geo')}>
           GDP Map
           </a>
-          <a className='repository-link' onClick={this.handleClick.bind(this, 'two')}
-          >
+          <a className='header-link' onClick={this.handleClick.bind(this, 'two')}>
           Compare Countries
           </a>
         </div>
