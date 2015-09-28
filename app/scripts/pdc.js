@@ -3,7 +3,7 @@ import Header               from './header';
 import ChartType            from './chart_type';
 import CompareGlobally      from './compare_globally';
 import CompareTwoCountries  from './compare_two_countries';
-import countries            from './util/countries.json';
+import countries            from './constants/countries.json';
 
 export default React.createClass({
   getInitialState: function(){
