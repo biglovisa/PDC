@@ -21,6 +21,9 @@ export default React.createClass({
         x: false,
         y: true
       },
+      onClick: function(d) {
+        let categories = this.categories();
+      }
     };
 
     var lineChart = <Chart
