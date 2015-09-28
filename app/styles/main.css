@@ -39,7 +39,11 @@ body {
 }
 
 .container.top-bar a:hover {
-  color: darkgreen;
+  text-decoration: underline;
+}
+
+.fa.fa-github-square.fa-2x:hover {
+  color: orange;
 }
 
  /* ----------- search board -------------- */
