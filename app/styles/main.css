@@ -88,6 +88,22 @@ body {
   margin-top: 2%;
 }
 
+.remove-country {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 1px solid green;
+  border-radius: 30%;
+  margin-left: 0.5%;
+  line-height: 0.4;
+  padding-right: 1.6%;
+}
+
+.btn:hover {
+  background-color: green;
+  color: white;
+}
+
 
 /* chart */
 

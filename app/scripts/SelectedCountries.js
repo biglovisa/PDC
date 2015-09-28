@@ -9,7 +9,9 @@ export default React.createClass({
       return (
         <li key={ index }>
           { country }
-          <button onClick={this.handleDelete.bind(this, country)}>
+          <button
+            onClick={this.handleDelete.bind(this, country)}
+            className='remove-country btn btn-xs'>
             x
           </button>
         </li>
