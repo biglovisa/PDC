@@ -36,6 +36,7 @@ body {
   padding-right: 1.5%;
   padding-left: 1%;
   padding-top: 2%;
+  cursor: pointer;
 }
 
 .container.top-bar a:hover {
@@ -47,6 +48,14 @@ body {
 }
 
  /* ----------- search board -------------- */
+
+/* placeholder */
+
+.placeholder img {
+  width: 10%;
+  float: right;
+  margin-right: 33%;
+}
 
 /* search */
 
@@ -97,6 +106,10 @@ body {
   color: green;
   border: 1px solid green;
   outline: none;
+}
+
+.selected-countries {
+  width: 650px;
 }
 
 .selected-countries li {

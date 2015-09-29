@@ -11,7 +11,7 @@ export default React.createClass({
           <h3>
           Public Data Compiler
           </h3>
-          <a href='https://github.com/applegrain/PDC'>
+          <a href='https://github.com/applegrain/PDC' target='_blank'>
           <i className="fa fa-github-square fa-2x"></i>
           </a>
           <a className='header-link' onClick={this.handleClick.bind(this, 'geo')}>

@@ -5,7 +5,7 @@ export default React.createClass({
     return (
       <div className='footer container'>
         <p>Public Data Compiler</p>
-        <a href='http://github.com/applegrain'>Contact</a>
+        <a href='http://github.com/applegrain' target='_blank'>Contact</a>
       </div>
     );
   }

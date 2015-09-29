@@ -2,6 +2,7 @@ import React             from 'react';
 import Header            from './Header';
 import Footer            from './Footer';
 import GlobalGdp         from './GlobalGdp';
+import MainPlaceholder   from './MainPlaceholder';
 import CompareCountries  from './CompareCountries';
 import countries         from './constants/Countries.json';
 
@@ -18,7 +19,7 @@ export default React.createClass({
     } else if (this.state.activeTab == 'two') {
       return <CompareCountries countries={countries} />
     } else {
-      return <h5 className="info">Select countries to compare or view GDP globally</h5>
+      return <MainPlaceholder />
     }
   },
   render: function() {
