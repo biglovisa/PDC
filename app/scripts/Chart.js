@@ -2,7 +2,6 @@ import React from 'react';
 import Chart from 'c3-react';
 
 export default React.createClass({
-
   render: function() {
     let options = {
       padding: {
@@ -26,16 +25,10 @@ export default React.createClass({
       }
     };
 
-    var lineChart = <Chart
-                     data={this.props.values}
-                     type='lineBar'
-                     options={options}
-                    />
-
     return (
       <div className='chart pull-left' key='chart'>
         <h5 className="details">{this.props.details}</h5>
-        {lineChart}
+        <Chart data={this.props.values} type='lineBar' options={options} />
       </div>
     );
   },

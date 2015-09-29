@@ -108,6 +108,10 @@ body {
   outline: none;
 }
 
+.selected-countries {
+  width: 650px;
+}
+
 .selected-countries li {
   display: inline;
   list-style-type: none;
