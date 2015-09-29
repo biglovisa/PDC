@@ -68,7 +68,7 @@ body {
   list-style: none;
 }
 
-.dropdown li:hover {
+.dropdown li:hover, .hoverLi {
   background-color: rgba(211, 211, 211, 0.4);
 }
 
