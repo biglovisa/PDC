@@ -43,20 +43,20 @@ export default React.createClass({
   },
   removeCountry: function(country) {
     var countries = this.state.currentCountries;
-    countries.splice(countries.indexOf(country, 1));
+    countries.splice(countries.indexOf(country), 1);
     this.setState({currentCountries: countries });
 
     this.getCountryData(countries);
   },
-  getCountryData: function(countries, current) {
+  getCountryData: function(countries, dataType) {
     if (!countries.length) {
       return this.setState({dataPoints: []});
     }
 
-    var selection = current ? current : this.state.currentDataOption;
+    var currentType = dataType ? dataType : this.state.currentDataOption;
 
     var responsePromises = countries.map(country => {
-      return getCountryData(this.props.countries[country], selection.query);
+      return getCountryData(this.props.countries[country], currentType.query);
     });
 
     Promise.all(responsePromises).then(function() {
