@@ -1,4 +1,5 @@
-import React from 'react';
+import React          from 'react';
+import Buttons        from './constants/Buttons';
 
 export default React.createClass({
   getInitialState: function() {
@@ -12,46 +13,7 @@ export default React.createClass({
   render: function() {
     var baseClass = 'chart-button btn btn-success'
 
-    var buttons = [
-      {
-        key: 'gdp',
-        title: 'GDP'
-      },
-      {
-        key: 'mil',
-        title: 'military expenses'
-      },
-      {
-        key: 'une',
-        title: 'unemployment'
-      },
-      {
-        key: 'deb',
-        title: 'government debt'
-      },
-      {
-        key: 'exp',
-        title: 'government expenses'
-      },
-      {
-        key: 'tax',
-        title: 'tax revenue'
-      },
-      {
-        key: 'edu',
-        title: 'education'
-      },
-      {
-        key: 'int',
-        title: 'internet users'
-      },
-      {
-        key: 'cel',
-        title: 'cell phone users'
-      }
-    ];
-
-    var buttons = buttons.map(function(object, index) {
+    var buttons = Buttons.map(function(object, index) {
       return (
         <button
           key={index}
