@@ -57,6 +57,15 @@ body {
   margin-right: 33%;
 }
 
+.chart-placeholder {
+  text-align: center;
+}
+
+.chart-placeholder img {
+  width: 10%;
+  transform: rotate(260deg);
+}
+
 /* search */
 
 .dropdown {
@@ -99,6 +108,7 @@ body {
 
 .options {
   margin-top: 2%;
+  text-align: center;
 }
 
 .chart-button.btn.btn-success.active {
@@ -106,10 +116,6 @@ body {
   color: green;
   border: 1px solid green;
   outline: none;
-}
-
-.selected-countries {
-  width: 650px;
 }
 
 .selected-countries li {
@@ -149,7 +155,7 @@ body {
 
 .info {
   text-align: center;
-  padding-top: 100px;
+  margin-top: 100px;
 }
 
 .details {

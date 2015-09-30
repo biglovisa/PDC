@@ -7,7 +7,7 @@ export default React.createClass({
   render: function() {
     var countries = this.props.countries.map((country, index) => {
       return (
-        <li key={ index }>
+        <li key={index}>
           {country}
           <button
             onClick={this.handleDelete.bind(this, country)}

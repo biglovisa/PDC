@@ -4,9 +4,9 @@ export default {
   mil: { key: 'Military expenditure in % of GDP',
          query: 'MS.MIL.XPND.GD.ZS' },
   deb: { key: 'Central government debt in % of GDP',
-         query: 'SL.UEM.TOTL.ZS' },
-  une: { key: 'Total unemployment in % of total labor force',
          query: 'GC.DOD.TOTL.GD.ZS' },
+  une: { key: 'Total unemployment in % of total labor force',
+         query: 'SL.UEM.TOTL.ZS' },
   exp: { key: 'Government expenses in % of GDP',
          query: 'GC.XPN.TOTL.GD.ZS' },
   tax: { key: 'Tax revenue in % of GDP',
@@ -14,5 +14,7 @@ export default {
   int: { key: 'Internet users per 100 people',
          query: 'IT.NET.USER.P2' },
   cel: { key: 'Cell phone users per 100 people',
-         query: 'IT.CEL.SETS.P2' }
+         query: 'IT.CEL.SETS.P2' },
+  edu: { key: 'Government expenditure on education in % of GDP',
+         query: 'SE.XPD.TOTL.GD.ZS' },
 }

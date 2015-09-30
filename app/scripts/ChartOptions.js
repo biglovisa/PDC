@@ -15,11 +15,11 @@ export default React.createClass({
     var buttons = [
       {
         key: 'gdp',
-        title: 'GDP per capita'
+        title: 'GDP'
       },
       {
         key: 'mil',
-        title: 'military expenditure'
+        title: 'military expenses'
       },
       {
         key: 'une',
@@ -35,7 +35,11 @@ export default React.createClass({
       },
       {
         key: 'tax',
-        title: 'tax Revenue'
+        title: 'tax revenue'
+      },
+      {
+        key: 'edu',
+        title: 'education'
       },
       {
         key: 'int',
