@@ -22,12 +22,10 @@ export default React.createClass({
     }
   },
   formatAjaxData: function(data) {
-    var formattedValues = data.reduce(function(array, dataPoint){
+    return data.reduce(function(array, dataPoint){
       array.push({label: parseInt(dataPoint.date), value: parseFloat(dataPoint.value).toFixed(2)});
       return array;
     }, []);
-
-    return formattedValues;
   },
   handleSelect: function(country) {
     var nextCountries = this.state.currentCountries.concat(country);

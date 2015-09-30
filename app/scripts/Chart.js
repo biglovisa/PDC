@@ -25,10 +25,26 @@ export default React.createClass({
       }
     };
 
+    var values = this.props.values;
+
+    function nanTruncated(values) {
+      var start = 0;
+      for (var i = 0; i < values.length; i++) {
+        if (isNaN(values[i].value)) {
+          start++;
+        } else {
+          break
+        }
+      }
+      return values.slice(start);
+    }
+
+    var trimmedCountries = values.map(function(country) { return {key: country.key, values: nanTruncated(country.values)} });
+
     return (
       <div className='chart pull-left' key='chart'>
         <h5 className="details">{this.props.details}</h5>
-        <Chart data={this.props.values} type='lineBar' options={options} />
+        <Chart data={trimmedCountries} type='lineBar' options={options} />
       </div>
     );
   },
