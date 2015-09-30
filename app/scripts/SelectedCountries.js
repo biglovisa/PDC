@@ -7,13 +7,11 @@ export default React.createClass({
   render: function() {
     var countries = this.props.countries.map((country, index) => {
       return (
-        <li key={index}>
-          {country}
-          <button
+        <li className='remove-country btn btn-success'
             onClick={this.handleDelete.bind(this, country)}
-            className='remove-country btn btn-xs'>
-            x
-          </button>
+            key={index} >
+          {country}
+          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
         </li>
       );
     });
