@@ -3,7 +3,6 @@ import Header            from './Header';
 import SelectCountry     from './SelectCountry';
 import ChartOptions      from './ChartOptions';
 import Chart             from './Chart';
-import ChartPlaceholder  from './ChartPlaceholder';
 import SelectedCountries from './SelectedCountries';
 import getCountryData    from './util/Api';
 import options           from './constants/DataTypes';
@@ -19,7 +18,7 @@ export default React.createClass({
               details={this.state.currentDataOption.key}
              />
     } else {
-      return <ChartPlaceholder />
+      return <h5 className="info">Select countries to compare</h5>
     }
   },
   formatAjaxData: function(data) {

@@ -31,19 +31,25 @@ export default React.createClass({
   handleKeyDown: function(e) {
     switch (e.key) {
       case 'ArrowDown':
-        var index = this.state.activeListItem === null ? 0 : this.state.activeListItem + 1;
         this.setState({activeListItem: this.incrementActiveLi()});
         break;
       case 'ArrowUp':
-        var index = this.state.activeListItem === null ? 0 : this.state.activeListItem - 1;
-        this.setState({activeListItem: index});
+        this.setState({activeListItem: this.decrementActiveLi()});
         break;
       case 'Enter':
-        var country = this.state.filteredListItems[this.state.activeListItem]
         this.setState({activeListItem: null});
-        this.selectValue(country);
+        this.selectValue(this.selectActiveLi());
         break;
     }
+  },
+  incrementActiveLi: function() {
+    return this.state.activeListItem === null ? 0 : this.state.activeListItem + 1;
+  },
+  decrementActiveLi: function() {
+    return this.state.activeListItem === null ? 0 : this.state.activeListItem - 1;
+  },
+  selectActiveLi: function() {
+    return this.state.filteredListItems[this.state.activeListItem];
   },
   renderDropdown: function() {
     if (!this.state.showDropdown || !this.state.inputText) {
