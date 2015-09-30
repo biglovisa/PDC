@@ -35,8 +35,12 @@ export default React.createClass({
   },
   handleClick: function(clicked) {
     var currentButton = options[clicked];
-    this.setState({currentDataOption: currentButton });
 
+    if (this.state.currentDataOption == currentButton) {
+      return;
+    }
+
+    this.setState({currentDataOption: currentButton });
     this.getCountryData(this.state.currentCountries, currentButton);
   },
   removeCountry: function(country) {
