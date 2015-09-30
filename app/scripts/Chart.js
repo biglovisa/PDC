@@ -1,24 +1,13 @@
 import React        from 'react';
 import ChartOptions from './constants/ChartOptions';
+import NanTruncated from './functions/NanTruncated'
 import Chart        from 'c3-react';
 
 export default React.createClass({
   render: function() {
     var values = this.props.values;
 
-    function nanTruncated(values) {
-      var start = 0;
-      for (var i = 0; i < values.length; i++) {
-        if (isNaN(values[i].value)) {
-          start++;
-        } else {
-          break
-        }
-      }
-      return values.slice(start);
-    }
-
-    var trimmedCountries = values.map(function(country) { return {key: country.key, values: nanTruncated(country.values)} });
+    var trimmedCountries = values.map(function(country) { return {key: country.key, values: NanTruncated(country.values)} });
 
     return (
       <div className='chart pull-left' key='chart'>
