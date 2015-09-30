@@ -31,7 +31,7 @@ export default React.createClass({
   handleKeyDown: function(e) {
     switch (e.key) {
       case 'ArrowDown':
-        // var index = this.state.activeListItem === null ? 0 : this.state.activeListItem + 1;
+        var index = this.state.activeListItem === null ? 0 : this.state.activeListItem + 1;
         this.setState({activeListItem: this.incrementActiveLi()});
         break;
       case 'ArrowUp':
@@ -44,9 +44,6 @@ export default React.createClass({
         this.selectValue(country);
         break;
     }
-  },
-  incrementActiveLi() {
-    return this.state.activeListItem === null ? 0 : this.state.activeListItem + 1;
   },
   renderDropdown: function() {
     if (!this.state.showDropdown || !this.state.inputText) {
