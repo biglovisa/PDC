@@ -9,5 +9,5 @@ export default function(countries) {
     }
   }
 
-  return missing.length === 0 ?  "" : <h6 className='details'>Missing data for: {missing.join(", ")}</h6>;
+  return missing.length === 0 ?  "" : <h6 className='missing details'>Missing data for: {missing.join(", ")}</h6>;
 }
