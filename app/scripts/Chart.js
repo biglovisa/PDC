@@ -8,6 +8,7 @@ export default React.createClass({
   render: function() {
     var values = this.props.values;
     var trimmedCountries = values.map(function(country) { return {key: country.key, values: NanTruncated(country.values)} });
+
     return (
       <div className='chart pull-left' key='chart'>
         <h5 className='details'>{this.props.details}</h5>
