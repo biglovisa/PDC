@@ -37,6 +37,8 @@ export default React.createClass({
         this.setState({activeListItem: this.decrementActiveLi()});
         break;
       case 'Enter':
+        if (this.state.activeListItem === null) { return; }
+
         this.setState({activeListItem: null});
         this.selectValue(this.selectActiveLi());
         break;
