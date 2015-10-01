@@ -68,6 +68,16 @@ body {
 
 /* search */
 
+.query-msg {
+  width: 100%;
+  display: inline-block;
+}
+
+.query-msg small {
+  color: green;
+  padding-left: 1%;
+}
+
 .dropdown {
   max-height: 300px;
   border: 1px solid lightgrey;

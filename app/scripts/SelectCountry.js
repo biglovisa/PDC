@@ -5,6 +5,9 @@ export default React.createClass({
   getInitialState: function() {
     return {inputText: '', activeListItem: null, filteredListItems: [], showDropdown: false, hoveredItem: null};
   },
+  componentDidMount: function() {
+    React.findDOMNode(this.refs.search).focus();
+  },
   handleSearch: function(e) {
     var inputText = e.target.value;
     this.setState({showDropdown: true, inputText: inputText});
@@ -80,6 +83,7 @@ export default React.createClass({
     return (
       <div className='search-form'>
         <input
+          ref='search'
           type='text'
           className='col-md-12'
           value={this.state.inputText}

@@ -15,10 +15,9 @@ export default React.createClass({
     if (this.state.dataPoints.length) {
       return <Chart
               values={this.state.dataPoints}
-              details={this.state.currentDataOption.key}
-             />
+              details={this.state.currentDataOption.key} />
     } else {
-      return <h5 className="info">Select countries to compare</h5>
+      return <h5 className="info">Get started by selecting some countries!</h5>
     }
   },
   formatAjaxData: function(data) {

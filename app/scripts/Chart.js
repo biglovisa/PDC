@@ -11,7 +11,10 @@ export default React.createClass({
 
     return (
       <div className='chart pull-left' key='chart'>
-        <h5 className='details'>{this.props.details}</h5>
+        <div className='query-msg'>
+          <h5 className='details'>{this.props.details}
+          <small>Modify your query by selecting from the options in green.</small></h5>
+        </div>
         {IfMissingData(trimmedCountries)}
 
         <Chart data={trimmedCountries} type='lineBar' options={ChartOptions} />
