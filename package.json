@@ -14,6 +14,14 @@
     "postinstall": "webpack -p --config webpack.prod.config.js --profile --progress --colors"
   },
   "devDependencies": {
+    "karma": "^0.13.10",
+    "karma-chai-plugins": "^0.6.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-cli": "^0.1.1",
+    "karma-mocha": "^0.2.0",
+    "karma-sourcemap-loader": "^0.3.5",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.3.3",
     "webpack-dev-server": "^1.11.0"
   },
   "dependencies": {
