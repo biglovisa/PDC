@@ -70,10 +70,8 @@ export default React.createClass({
     });
 
     return (
-      <ul
-        style={{overflow: 'auto'}}
-        className='dropdown'
-      >
+      <ul style={{overflow: 'auto'}}
+          className='dropdown'>
         {listItems}
       </ul>
     );
@@ -87,8 +85,7 @@ export default React.createClass({
           value={this.state.inputText}
           placeholder='Search for a country...'
           onChange={this.handleSearch}
-          onKeyDown={this.handleKeyDown}
-        />
+          onKeyDown={this.handleKeyDown} />
         <div>
           {this.renderDropdown()}
         </div>

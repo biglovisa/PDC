@@ -11,8 +11,7 @@ export default React.createClass({
             graph_id='GeoChart'
             width={'100%'}
             height={'500px'}
-            legend_toggle={true}
-          />
+            legend_toggle={true} />
   },
   render: function() {
     return (

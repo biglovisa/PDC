@@ -81,21 +81,19 @@ export default React.createClass({
         <div className='options'>
           <ChartOptions
             className='options col-md-10'
-            handleClick={this.handleClick}
-          />
+            handleClick={this.handleClick} />
         </div>
 
         <div className='countries'>
           <div className='first-country col-md-4'>
             <SelectCountry
               onSelect={this.handleSelect}
-              countries={Object.keys(this.props.countries)}
-            />
+              countries={Object.keys(this.props.countries)} />
           </div>
 
           <SelectedCountries
             countries={this.state.currentCountries}
-            onDelete={this.removeCountry}/>
+            onDelete={this.removeCountry} />
         </div>
 
         {this.renderChart()}

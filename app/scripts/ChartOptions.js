@@ -20,8 +20,7 @@ export default React.createClass({
           value={object.key}
           onClick={this.handleClick}
           className={this.state.activeButton == object.key ?
-                          baseClass + ' active' : baseClass}
-        >
+                          baseClass + ' active' : baseClass} >
           {object.title}
         </button>
       );
