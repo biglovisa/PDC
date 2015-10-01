@@ -140,7 +140,7 @@ input:focus {
 }
 
 .selected-countries li:hover {
-  background-color: red;
+  background-color: #F55660;
   color: white;
 }
 
