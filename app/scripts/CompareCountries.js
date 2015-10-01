@@ -18,6 +18,10 @@ export default React.createClass({
     }, []);
   },
   handleSelect: function(country) {
+    if (this.state.currentCountries.indexOf(country) > -1) {
+      return;
+    }
+
     var nextCountries = this.state.currentCountries.concat(country);
     this.setState({currentCountries: nextCountries});
 
