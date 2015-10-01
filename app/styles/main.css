@@ -91,6 +91,10 @@ body {
   cursor: pointer;
 }
 
+.search-form input {
+  font-size: 20px;
+}
+
 input:focus {
   outline: none;
 }

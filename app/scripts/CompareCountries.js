@@ -11,15 +11,6 @@ export default React.createClass({
   getInitialState: function() {
     return {dataPoints: [], currentCountries: [], currentDataOption: options['gdp']};
   },
-  renderChart: function(){
-    if (this.state.dataPoints.length) {
-      return <Chart
-              values={this.state.dataPoints}
-              details={this.state.currentDataOption.key} />
-    } else {
-      return <h5 className="info">Get started by selecting some countries!</h5>
-    }
-  },
   formatAjaxData: function(data) {
     return data.reduce(function(array, dataPoint){
       array.push({label: parseInt(dataPoint.date), value: parseFloat(dataPoint.value).toFixed(2)});
@@ -95,7 +86,8 @@ export default React.createClass({
             onDelete={this.removeCountry} />
         </div>
 
-        {this.renderChart()}
+        <Chart values={this.state.dataPoints}
+                details={this.state.currentDataOption.key} />
       </div>
     );
   },
