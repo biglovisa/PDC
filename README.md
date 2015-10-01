@@ -5,7 +5,7 @@ Public Data Compiler
 
 The Public Data Compiler queries the World Bank Api and displays historical data in a graph. The user can select one or mutliple countries to query and modify the data to query for by selecting options. The user can also view current global GDP levels on a map. 
 
-![](http://g.recordit.co/4U9DcWbj4l.gif)
+![](http://g.recordit.co/jBVbI0NYgJ.gif)
 
 ### technical overview
 
