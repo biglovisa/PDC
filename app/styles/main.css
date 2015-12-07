@@ -49,23 +49,6 @@ body {
 
  /* ----------- search board -------------- */
 
-/* placeholder */
-
-.placeholder img {
-  width: 10%;
-  float: right;
-  margin-right: 33%;
-}
-
-.chart-placeholder {
-  text-align: center;
-}
-
-.chart-placeholder img {
-  width: 10%;
-  transform: rotate(260deg);
-}
-
 /* search */
 
 .query-msg {
